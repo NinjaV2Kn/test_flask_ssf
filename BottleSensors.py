@@ -1,19 +1,17 @@
 import RPi.GPIO as GPIO
 import time
-import Reader
 
-class BottleSensor:
-        
-        def __init__(self, sensor: str, pin: int):
-            self.sensor = sensor
-            self.pin = pin
-            self.reader = Reader(pin)
+sensor1 = 4
 
-        def read(self):
-            return self.reader.read()
-            
-        def getoutput(self):
-            return self.sensor + ": " + str(self.read())
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(sensor1, GPIO.IN) #Sensor 1
 
-slot1 = BottleSensor("Slot 1", 4)
-print(slot1.getoutput())
+def button_state(input_pin: int):
+    if GPIO.input(input_pin):
+        return "occupied"
+    else:
+        return "slot empty"
+    
+while True:
+    print(button_state(sensor1))
+    time.sleep(0.5)
