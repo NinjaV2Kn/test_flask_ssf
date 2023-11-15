@@ -54,10 +54,12 @@ try:
                 if sensor not in occupied_sensors:
                     occupied_sensors.append(sensor)
                     print(f"Sensor {sensor} is occupied")
+                    print(f"Counter: {len(occupied_sensors)}")
             else:
                 if sensor in occupied_sensors:
                     occupied_sensors.remove(sensor)
                     print(f"Sensor {sensor} is empty")
+                    print(f"Counter: {len(occupied_sensors)}")
         time.sleep(0.1)
 
 except KeyboardInterrupt:
