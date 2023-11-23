@@ -1,0 +1,2 @@
+RPi.GPIO~=0.7.1
+nanoleafapi~=2.1.2
