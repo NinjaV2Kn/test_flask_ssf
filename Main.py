@@ -3,7 +3,7 @@ import asyncio
 import checkChange as cc
 
 cc = cc.changes()
-async def main() -> None:
+def main() -> None:
     """main function."""
     try:
         bs.setup_GPIO()
@@ -11,9 +11,9 @@ async def main() -> None:
         print("setup complete")
         print("press CTRL+C to exit")
 
-        cc.changed()
+        cc.run()
 
     except KeyboardInterrupt:
         bs.GPIO.cleanup()
 
-asyncio.run(main())
+main()
