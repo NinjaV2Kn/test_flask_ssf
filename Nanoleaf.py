@@ -19,20 +19,17 @@ def nanoleaf_indicator():
     if bs.bottle_counter() == 16: # if all sensors are occupied all the panels will turn Green
         digital_twin.set_all_colors((0, 255, 0)) # set all panels to green
         digital_twin.sync() # sync the nanoleafes to set the colors
-        time.sleep(10) # wait 10 seconds to not overload the nanoleafes
 
     elif bs.bottle_counter() == 15: # if 15 sensors are occupied all the panels will turn Green and the top panel will turn orange
         digital_twin.set_all_colors((0, 255, 0))
         digital_twin.set_color(panel_top, (255, 100, 0)) # set the top panel to orange
         digital_twin.sync()
-        time.sleep(10)
 
     elif bs.bottle_counter() == 14: # if 14 sensors are occupied all the panels will turn Green and the top panel and the left middle panel will turn orange
         digital_twin.set_all_colors((0, 255, 0))
         digital_twin.set_color(panel_top, (255, 100, 0))
         digital_twin.set_color(panel_left_middle, (255, 100, 0))
         digital_twin.sync()
-        time.sleep(10)
         
     elif bs.bottle_counter() == 13: # if 13 sensors are occupied all the panels will turn Green and the top panel, the left middle panel and the right middle panel will turn orange
         digital_twin.set_all_colors((0, 255, 0))
@@ -40,38 +37,32 @@ def nanoleaf_indicator():
         digital_twin.set_color(panel_left_middle, (255, 100, 0))
         digital_twin.set_color(panel_right_middle, (255, 100, 0))
         digital_twin.sync()
-        time.sleep(10)
 
     elif bs.bottle_counter() == 12: # 
         digital_twin.set_all_colors((255, 100, 0))
         digital_twin.set_color(panel_middle_bottom, (0, 255, 0))
         digital_twin.set_color(panel_right_bottom, (0, 255, 0))
         digital_twin.sync()
-        time.sleep(10)
 
     elif bs.bottle_counter() == 11:
         digital_twin.set_all_colors((255, 100, 0))
         digital_twin.set_color(panel_right_bottom, (0, 255, 0))
         digital_twin.sync()
-        time.sleep(10)
 
     elif bs.bottle_counter() == 10: # if 10 sensors are occupied all the panels will turn orange
         digital_twin.set_all_colors((255, 100, 0))
         digital_twin.sync()
-        time.sleep(10)
 
     elif bs.bottle_counter() == 9:
         digital_twin.set_all_colors((255, 100, 0))
         digital_twin.set_color(panel_top, (255, 0, 0))
         digital_twin.sync()
-        time.sleep(10)
     
     elif bs.bottle_counter() == 8:
         digital_twin.set_all_colors((255, 100, 0))
         digital_twin.set_color(panel_top, (255, 0, 0))
         digital_twin.set_color(panel_left_middle, (255, 0, 0))
         digital_twin.sync()
-        time.sleep(10)
 
     elif bs.bottle_counter() == 7:
         digital_twin.set_all_colors((255, 100, 0))
@@ -79,31 +70,26 @@ def nanoleaf_indicator():
         digital_twin.set_color(panel_left_middle, (255, 0, 0))
         digital_twin.set_color(panel_right_middle, (255, 0, 0))
         digital_twin.sync()
-        time.sleep(10)
 
     elif bs.bottle_counter() == 6:
         digital_twin.set_all_colors((255, 0, 0))
         digital_twin.set_color(panel_middle_bottom, (255, 100, 0))
         digital_twin.set_color(panel_right_bottom, (255, 100, 0))
         digital_twin.sync()
-        time.sleep(10)
 
     elif bs.bottle_counter() == 5:
         digital_twin.set_all_colors((255, 0, 0))
         digital_twin.set_color(panel_right_bottom, (255, 100, 0))
         digital_twin.sync()
-        time.sleep(10)
 
     elif bs.bottle_counter() == 4: # if 4 sensors are occupied all the panels will turn red
         digital_twin.set_all_colors((255, 0, 0))
         digital_twin.sync()
-        time.sleep(10)
 
     elif bs.bottle_counter() == 3:
         digital_twin.set_all_colors((255, 0, 0))
         digital_twin.set_color(panel_top, (255, 255, 255))
         digital_twin.sync()
-        time.sleep(10)
 
     elif bs.bottle_counter() == 2:
         digital_twin.set_all_colors((255, 0, 0))
@@ -111,15 +97,12 @@ def nanoleaf_indicator():
         digital_twin.set_color(panel_left_middle, (255, 255, 255))
         digital_twin.set_color(panel_right_middle, (255, 255, 255))
         digital_twin.sync()
-        time.sleep(10)
 
     elif bs.bottle_counter() == 1:
         digital_twin.set_all_colors((255, 255, 255))
         digital_twin.set_color(panel_middle_bottom, (255, 0, 0))
         digital_twin.sync()
-        time.sleep(10)
     
     elif bs.bottle_counter() == 0: # if all sensors are empty all the panels will turn white
         digital_twin.set_all_colors((255, 255, 255))
         digital_twin.sync()
-        time.sleep(10)
