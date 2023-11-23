@@ -1,8 +1,8 @@
 import BottleSensors as bs
 import asyncio
-import Nanoleaf as nls
 import checkChange as cc
 
+cc = cc.changes()
 async def main() -> None:
     """main function."""
     try:
@@ -10,8 +10,6 @@ async def main() -> None:
 
         print("setup complete")
         print("press CTRL+C to exit")
-
-        bottle_amount_old = 0
 
         cc.changed()
 

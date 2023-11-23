@@ -5,24 +5,37 @@ import Nanoleaf as nls
 bottle_amount_old = 0
 bottle_amount = bs.bottle_counter()
 
-async def change() -> None:
-    """keeps track of the bottle amount."""
-    try:
-        bottle_amount_old = 0
-        while True:
-            bottle_amount = bs.bottle_counter()
+
+class changes:
+    """keeps track of the bottle amount and checks if it has changed."""
     
-    finally:
+    def __init__(self) -> None:
+        self.bottle_amount_old = 0
+        self.bottle_amount = bs.bottle_counter()
         pass
 
-async def changed() -> None:
-    """Checks if the bottle amount has changed."""
-    bottle_amount_old = 0
-    try:
-        if bottle_amount != bottle_amount_old:
-            nls.nanoleaf_indicator()
-            await asyncio.sleep(2)
-            bottle_amount_old = bottle_amount
-            
-    finally:
-        pass
+    async def amount(self) -> None:
+        """keeps track of the bottle amount."""
+        try:
+            while True:
+                bottle_amount = bs.bottle_counter()
+                await asyncio.sleep(0.1)
+        
+        except Exception as e:
+            print(e)
+
+    async def changed(self) -> None:
+        """Checks if the bottle amount has changed."""
+        try:
+            if bottle_amount != bottle_amount_old:
+                nls.nanoleaf_indicator()
+                await asyncio.sleep(2)
+                bottle_amount_old = bottle_amount
+
+        except Exception as e:
+            print(e)
+
+    def run(self):
+        loop = asyncio.get_event_loop() # Set event loop
+        loop.run_until_complete(asyncio.wait([self.changed(), self.amount()]))
+        loop.close() # if both loops are completed the program closes
