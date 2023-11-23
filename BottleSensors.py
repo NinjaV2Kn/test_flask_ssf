@@ -20,7 +20,7 @@ sensor4 = 22 # bottle slot 4
 #sensor15 = 16 # bottle slot 15
 #sensor16 = 20 # bottle slot 16
 
-def setup_GPIO():
+def setup_GPIO() -> None:
     """setup the GPIO pins."""
     GPIO.setwarnings(False) #Disable warnings
     GPIO.setmode(GPIO.BCM) #Set GPIO pin numbering
@@ -41,20 +41,20 @@ def setup_GPIO():
     #GPIO.setup(sensor15, GPIO.IN) #Sensor 15
     #GPIO.setup(sensor16, GPIO.IN) #Sensor 16
 
-def button_state(input_pin: int):
+def button_state(input_pin: int) -> bool:
     """returns the state of the sensor so you know if it is occupied or empty."""
     if GPIO.input(input_pin): 
-        return "occupied"
+        return True
     else:
-        return "empty"
+        return False
     
-def bottle_counter():
+def bottle_counter() -> int:
     """counts how many bottles are in the fridge."""
     all_sensors = [sensor1, sensor2, sensor3, sensor4] #, sensor5, sensor6, sensor7, sensor8, sensor9, sensor10, sensor11, sensor12, sensor13, sensor14, sensor15, sensor16]
     occupied_sensors = []
 
     for sensor in all_sensors:
-        if button_state(sensor) == "occupied":
+        if button_state(sensor):
             if sensor not in occupied_sensors:
                 occupied_sensors.append(sensor)
         else:
