@@ -18,7 +18,7 @@ class changes:
         """keeps track of the bottle amount."""
         try:
             while True:
-                bottle_amount = bs.bottle_counter()
+                self.bottle_amount = bs.bottle_counter()
                 await asyncio.sleep(0.1)
         
         except Exception as e:
@@ -27,10 +27,10 @@ class changes:
     async def changed(self) -> None:
         """Checks if the bottle amount has changed."""
         try:
-            if bottle_amount != bottle_amount_old:
+            if self.bottle_amount != self.bottle_amount_old:
                 nls.nanoleaf_indicator()
                 await asyncio.sleep(2)
-                bottle_amount_old = bottle_amount
+                self.bottle_amount_old = self.bottle_amount
 
         except Exception as e:
             print(e)
