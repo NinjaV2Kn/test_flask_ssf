@@ -2,17 +2,12 @@ import asyncio
 import BottleSensors as bs
 import Nanoleaf as nls
 
-bottle_amount_old = 0
-bottle_amount = bs.bottle_counter()
-
-
 class changes:
     """keeps track of the bottle amount and checks if it has changed."""
     
     def __init__(self) -> None:
         self.bottle_amount_old = 0
         self.bottle_amount = bs.bottle_counter()
-        pass
 
     async def amount(self) -> None:
         """keeps track of the bottle amount."""
@@ -27,10 +22,12 @@ class changes:
     async def changed(self) -> None:
         """Checks if the bottle amount has changed."""
         try:
-            if self.bottle_amount != self.bottle_amount_old:
-                nls.nanoleaf_indicator()
-                await asyncio.sleep(2)
-                self.bottle_amount_old = self.bottle_amount
+            while True:  # Added loop here
+                if self.bottle_amount != self.bottle_amount_old:
+                    nls.nanoleaf_indicator()
+                    await asyncio.sleep(2)
+                    self.bottle_amount_old = self.bottle_amount
+                await asyncio.sleep(0.1)  # Added sleep here to prevent busy-waiting
 
         except Exception as e:
             print(e)
