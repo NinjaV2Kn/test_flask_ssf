@@ -1,38 +1,62 @@
 import asyncio
-import BottleSensors as bs
-import Nanoleaf as nls
 
-class changes:
-    """keeps track of the bottle amount and checks if it has changed."""
-    
-    def __init__(self) -> None:
-        self.bottle_amount_old = 0
-        self.bottle_amount = bs.bottle_counter()
+class Bottle:
+    def __init__(self, amount):
+        self._amount = amount
 
-    async def amount(self) -> None:
-        """keeps track of the bottle amount."""
+    @property
+    def amount(self) -> int:
+        return self._amount
+
+    @amount.setter
+    def amount(self, value):
+        if value != self._amount:
+            self._amount = value
+            self.on_amount_changed(value)
+
+    def on_amount_changed(self, new_amount):
+        import Nanoleaf as nls
+        print(f"Bottle amount changed to {new_amount}")
+        nls.nanoleaf_indicator()
+
+
+
+async def bottle_amount_monitor(bottle):
+    while True:
+        # Simulate some asynchronous operation
+        await asyncio.sleep(1)
+
+        # Check if the bottle amount has changed
+        # In a real-world scenario, you might have some external input or event triggering this check
+        new_amount = get_updated_bottle_amount()
+        bottle.amount = new_amount
+
+
+def get_updated_bottle_amount():
+    # Simulate getting an updated bottle amount from some external source
+    import BottleSensors as bs
+    return bs.bottle_counter()
+
+
+async def main():
+    initial_amount = 0
+    bottle = Bottle(initial_amount)
+
+    # Start the bottle amount monitor
+    monitor_task = asyncio.create_task(bottle_amount_monitor(bottle))
+
+    try:
+        # Your main application logic can go here
+        # For now, we'll just let the monitor run for a while
+        await asyncio.sleep(10)
+    finally:
+        # Cancel the monitor task when done
+        monitor_task.cancel()
         try:
-            while True:
-                self.bottle_amount = bs.bottle_counter()
-                await asyncio.sleep(0.1)
-        
-        except Exception as e:
-            print(e)
+            await monitor_task
+        except asyncio.CancelledError:
+            pass
 
-    async def changed(self) -> None:
-        """Checks if the bottle amount has changed."""
-        try:
-            while True:  # Added loop here
-                if self.bottle_amount != self.bottle_amount_old:
-                    nls.nanoleaf_indicator()
-                    await asyncio.sleep(2)
-                    self.bottle_amount_old = self.bottle_amount
-                await asyncio.sleep(0.1)  # Added sleep here to prevent busy-waiting
 
-        except Exception as e:
-            print(e)
-
-    def run(self):
-        loop = asyncio.get_event_loop() # Set event loop
-        loop.run_until_complete(asyncio.wait([self.changed(), self.amount()]))
-        loop.close() # if both loops are completed the program closes
+if __name__ == "__main__":
+    asyncio.run(main())
