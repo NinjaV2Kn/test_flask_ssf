@@ -2,7 +2,7 @@ import BottleSensors as bs
 import asyncio
 import checkChange as cc
 
-cc = cc.changes()
+
 def main() -> None:
     """main function."""
     try:
@@ -10,9 +10,9 @@ def main() -> None:
 
         print("setup complete")
         print("press CTRL+C to exit")
-
-        cc.run()
-
+        while True:
+            cc.check()        
+        
     except KeyboardInterrupt:
         bs.GPIO.cleanup()
 
