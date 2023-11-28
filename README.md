@@ -9,3 +9,8 @@
 * 1 Temperature Sensor <br>
 * 1 Pressure Sensor <br>
 * 6 Nanoleafes
+
+<h2>Setup:</h2>
+* connect the sensors to the raspberry Pi
+* download all the files and put them on your raspberry pi
+* change the 
