@@ -1,6 +1,6 @@
 import BottleSensors as bs
-import asyncio
 import checkChange as cc
+import bottlesSold as bb
 
 
 def main() -> None:
@@ -12,7 +12,7 @@ def main() -> None:
         print("press CTRL+C to exit")
         while True:
             cc.check()        
-        
+            bb.main()
     except KeyboardInterrupt:
         bs.GPIO.cleanup()
 
