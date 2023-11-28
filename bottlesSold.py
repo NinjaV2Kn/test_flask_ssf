@@ -1,9 +1,9 @@
 import requests
 import json
 
-# Function to check the balance and update the count of bottles sold
-def check_and_update_balance(previous_balance):
-    # Replace 'YOUR_ENDPOINT_URL' with the actual endpoint URL
+def check_and_update_balance(previous_balance) -> float:
+    """Check the balance and update the count of bottles sold"""
+    # Replace endpoint_url with the actual endpoint URL
     endpoint_url = 'https://ngitl-self-service-functions.azurewebsites.net/api/drinks/balance?'
     
     # Request to get the balance
@@ -30,14 +30,14 @@ def check_and_update_balance(previous_balance):
 
     return previous_balance
 
-# Function to update the count of bottles sold and save it to a text file
-def update_bottle_count():
+def update_bottle_count() -> None:
+    """Update the count of bottles sold and save it to a text file"""
     # Read the current count from the text file
     try:
         with open('bottle_count.txt', 'r') as file:
             count = int(file.read())
     except FileNotFoundError:
-        # If the file doesn't exist, start with a count of 0
+        print("FILE NOT FOUND")
         count = 0
     
     # Increment the count
@@ -49,16 +49,18 @@ def update_bottle_count():
     
     print(f"Bottle sold! Total bottles sold: {count}")
 
-# Main function
-def main():
-    # Initial balance (set to a very low value as a starting point)
-    previous_balance = 0.0
+def main() -> None:
+    """Main function"""
+    try:
+        # Initial balance (set to a very low value as a starting point)
+        previous_balance = 0.0
 
-    # Run the script in a loop
-    while True:
-        # Check and update the balance
-        previous_balance = check_and_update_balance(previous_balance)
+        # Run the script in a loop
+        while True:
+            # Check and update the balance
+            previous_balance = check_and_update_balance(previous_balance)
+    except Exception as e:
+        print(e)
 
-# Run the script
 if __name__ == "__main__":
     main()
