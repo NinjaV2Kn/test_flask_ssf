@@ -1,54 +1,61 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1000.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mate</title>
-    <script>
-        function showWord() {
-          
-          document.getElementById("ausgabe").innerHTML = "8 ° C";
-        }
-      </script>
-
 </head>
 <body>
-        <h1>SSF</h1>
-<button onclick="showWord()">Für Temperatur Klicken</button>
-<p id="ausgabe"></p>
+    <h1 align="center"> SSF</h1>
+    <button onclick="showWord()">Für Temperatur Klicken</button>
+    <p id="ausgabe"></p>
 
-<table border = "3" align="center">
-        <tr>
+    <label  for="inputSensors">Anzahl der betätigten Sensoren:</label>
+    <input type="number" id="inputSensors" min="0" max="16" step="1">
+    <button onclick="generateTable()">Tabelle generieren</button>
+    
+    <div id="missingBottles"></div>
+    <table id="sensorTable" align="center"></table>
 
-        <th align="center">Füllstand</th>
+    <script>
+        function showWord() {
+            document.getElementById("ausgabe").innerHTML = "8 °C";
+        }
 
-        </tr>
-        <tr>
-          <td><img src="Mate leer.png" alt="leer" width="250" height="250"></td>
-          <td><img src="mate leer.png" alt="leer" width="250" height="250"></td>
-          <td><img src="Mate mitte.png" alt="voll" width="250" height="250"></td>
-          <td><img src="Mate mitte.png" alt="voll" width="250" height="250"></td>
-        </tr>
-        <tr>
-          <td><img src="mate mitte.png" alt="voll" width="250" height="250"></td>
-          <td><img src="mate mitte.png" alt="voll" width="250" height="250"></td>
-          <td><img src="mate mitte.png" alt="voll" width="250" height="250"></td>
-          <td><img src="mate mitte.png" alt="voll" width="250" height="250"></td>          
-        </tr>
-          <td><img src="mate mitte.png" alt="voll" width="250" height="250"></td>
-          <td><img src="mate mitte.png" alt="voll" width="250" height="250"></td>
-          <td><img src="mate leer.png" alt="voll" width="250" height="250"></td>
-          <td><img src="mate mitte.png" alt="voll" width="250" height="250"></td>  
-        <tr>
-        </tr>
-          <td><img src="mate mitte.png" alt="voll" width="250" height="250"></td>
-          <td><img src="mate mitte.png" alt="voll" width="250" height="250"></td>
-          <td><img src="mate mitte.png" alt="voll" width="250" height="250"></td>
-          <td><img src="mate mitte.png" alt="voll" width="250" height="250"></td>  
-        <tr>
+        function createSensorHtml(isActivated) {
+            if (isActivated) {
+                return '<td><img src="Mate mitte.png" alt="voll" width="140" height="140"></td>';
+            } else {
+                return '<td><img src="mate leer.png" alt="leer" width="140" height="140"></td>';
+            }
+        }
 
-        </tr>
-      </table>
+        function generateTable() {
+            var inputSensors = parseInt(document.getElementById("inputSensors").value, 10) || 0;
+            var activatedSensors = inputSensors;
 
+            // 16 sensoren maximiren
+            activatedSensors = Math.min(activatedSensors, 16);
+
+            var missingSensors = 16 - activatedSensors;
+
+            document.getElementById("missingBottles").innerHTML = "Fehlende Sensoren: " + missingSensors;
+
+            var tableHtml = '';
+
+            for (var i = 0; i < 4; i++) {
+                tableHtml += '<tr>';
+                for (var j = 0; j < 4; j++) {
+                    var isActivated = (activatedSensors > 0);
+                    tableHtml += createSensorHtml(isActivated);
+                    activatedSensors--;
+                }
+                tableHtml += '</tr>';
+            }
+
+            document.getElementById("sensorTable").innerHTML = tableHtml;
+        }
+    </script>
 </body>
 </html>
