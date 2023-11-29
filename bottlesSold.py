@@ -1,5 +1,6 @@
 import requests
 import json
+import payLeaf as pl
 
 def check_and_update_balance(previous_balance) -> float:
     """Check the balance and update the count of bottles sold"""
@@ -18,6 +19,7 @@ def check_and_update_balance(previous_balance) -> float:
         if "L_AMT0" in data and float(data["L_AMT0"]) > previous_balance:
             # Update the count of bottles sold and check if the balance has increased by more than 1
             times = (float(data["L_AMT0"]) - previous_balance)
+            pl.payLeaf2()
             for _ in range(int(times)):
                 update_bottle_count()
             
