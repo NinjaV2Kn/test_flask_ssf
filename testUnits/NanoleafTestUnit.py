@@ -1,5 +1,4 @@
 import time
-import BottleSensors as bs
 from nanoleafapi import Nanoleaf, NanoleafDigitalTwin
 
 nl = Nanoleaf("192.168.30.132") # setup nanoleaf
