@@ -144,6 +144,7 @@ def nanoleaf_indicator() -> None:
 
             digital_twin.sync()
             count += 1
+            time.sleep(2)
         print("Nanoleaf test finished!")
 
 
