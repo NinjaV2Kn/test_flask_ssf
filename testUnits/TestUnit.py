@@ -1,9 +1,9 @@
 import BottleSensors as bs
-import Nanoleaf as nl
+import NanoleafTestUnit as nl
 from threading import Thread
 import checkChange as cc
-import bottlesSold as bb
-import payLeaf as pl
+import bottlesSoldTestUnit as bb
+import payLeafTestUnit as pl
 import time
 
 def testPayLeaf() -> None:
@@ -18,5 +18,13 @@ def testBottlesSold() -> None:
     bb.main()
     time.sleep(1)
 
-if __name__ == "__main__":
-    testPayLeaf()
+def NanoleafTest() -> None:
+    """test function for nanoleaf."""
+    print("testing nanoleaf...")
+    nl.nanoleaf_indicator()
+    time.sleep(1)
+
+
+testPayLeaf()
+testBottlesSold()
+NanoleafTest()
