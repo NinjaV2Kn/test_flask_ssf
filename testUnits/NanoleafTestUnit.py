@@ -61,7 +61,7 @@ def nanoleaf_indicator() -> None:
     ]
 
     try:
-        for count in range(16):
+        for count in range(17):
             # count = 0
 
             match count:

@@ -25,7 +25,7 @@ def payLeaf2():
     for _ in range(2):
         nlp.set_brightness(60)
         time.sleep(pause)
-        nlp.set_brightness(0)
+        nlp.set_brightness(10)
         time.sleep(pause)
     nlp.set_effect(current_effect)
     nlp.set_brightness(50)
