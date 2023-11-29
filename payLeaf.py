@@ -45,6 +45,3 @@ def payLeaf2():
     nlp.set_brightness(100)
     nlp.set_effect(current_effect)
     nlp.set_brightness(50)
-
-print("done")
-payLeaf2()
