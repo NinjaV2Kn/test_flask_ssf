@@ -17,8 +17,8 @@ def check_and_update_balance(previous_balance) -> float:
         # Check if the balance is greater than the previous balance
         if "L_AMT0" in data and float(data["L_AMT0"]) > previous_balance:
             # Update the count of bottles sold and check if the balance has increased by more than 1
-            times = int((float(data["L_AMT0"]) - previous_balance))
-            for i in range(times):
+            times = (float(data["L_AMT0"]) - previous_balance)
+            for _ in range(int(times)):
                 update_bottle_count()
             
             # Update the previous balance to the new balance
@@ -36,8 +36,9 @@ def update_bottle_count() -> None:
     """Update the count of bottles sold and save it to a text file"""
     # Read the current count from the text file
     try:
-        with open('bottle_count.txt', 'r') as file:
-            count = int(file.read())
+        with open('bottle_count.json', 'r') as file:
+            count_dict = json.load(file)
+            count = int(count_dict['count'])
     except FileNotFoundError:
         print("FILE NOT FOUND")
         count = 0
@@ -46,8 +47,8 @@ def update_bottle_count() -> None:
     count += 1
     
     # Save the updated count back to the text file
-    with open('bottle_count.txt', 'w') as file:
-        file.write(str(count))
+    with open('bottle_count.json', 'w') as file:
+        json.dump({"count": count}, file)
     
     print(f"Bottle sold! Total bottles sold: {count}")
 
@@ -55,7 +56,7 @@ def main() -> None:
     """Main function"""
     try:
         # Initial balance (set to a very low value as a starting point)
-        previous_balance = 0.0
+        previous_balance = 9999
 
         # Run the script in a loop
         while True:
