@@ -16,8 +16,10 @@ def check_and_update_balance(previous_balance) -> float:
         
         # Check if the balance is greater than the previous balance
         if "L_AMT0" in data and float(data["L_AMT0"]) > previous_balance:
-            # Update the count of bottles sold
-            update_bottle_count()
+            # Update the count of bottles sold and check if the balance has increased by more than 1
+            times = int((float(data["L_AMT0"]) - previous_balance))
+            for i in range(times):
+                update_bottle_count()
             
             # Update the previous balance to the new balance
             previous_balance = float(data["L_AMT0"])
