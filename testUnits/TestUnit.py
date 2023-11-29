@@ -12,7 +12,7 @@ def testPayLeaf() -> None:
 def testBottlesSold() -> None:
     """test function for bottlesSold."""
     print("testing bottlesSold...")
-    bb.check_and_update_balance()
+    bb.main()
     time.sleep(1)
 
 def NanoleafTest() -> None:
