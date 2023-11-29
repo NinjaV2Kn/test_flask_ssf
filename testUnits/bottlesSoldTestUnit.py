@@ -63,9 +63,9 @@ def main() -> None:
         previous_balance = 9999
 
         # Run the script in a loop
-        while True:
-            # Check and update the balance
-            previous_balance = check_and_update_balance(previous_balance)
+        
+        # Check and update the balance
+        previous_balance = check_and_update_balance(previous_balance)
     except Exception as e:
         print(e)
 
