@@ -12,11 +12,13 @@
     <p id="ausgabe"></p>
 
     <label  for="inputSensors">Anzahl der betätigten Sensoren:</label>
-    <input type="number" id="inputSensors" min="0" max="16" step="1">
+    <input type="number" id="inputSensors" min="0" max="16" step="1" onchange="generateTable()">
     <button onclick="generateTable()">Tabelle generieren</button>
     
-    <div id="missingBottles"></div>
-    <table id="sensorTable" align="center"></table>
+    <div id="missingBottles" >
+
+    </div>
+        <table id="sensorTable" align="center"></table>
 
     <script>
         function showWord() {
@@ -25,9 +27,9 @@
 
         function createSensorHtml(isActivated) {
             if (isActivated) {
-                return '<td><img src="Mate mitte.png" alt="voll" width="140" height="140"></td>';
+                return '<td><img src="Mate mitte.png" alt="voll" width="40%" height="auto"></td>';
             } else {
-                return '<td><img src="mate leer.png" alt="leer" width="140" height="140"></td>';
+                return '<td><img src="mate leer.png" alt="leer" width="40%" height="auto"></td>';
             }
         }
 
