@@ -1,7 +1,4 @@
-import BottleSensors as bs
 import NanoleafTestUnit as nl
-from threading import Thread
-import checkChange as cc
 import bottlesSoldTestUnit as bb
 import payLeafTestUnit as pl
 import time
