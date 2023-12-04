@@ -1,6 +1,7 @@
 import BottleSensors as bs
-import asyncio
+from threading import Thread
 import checkChange as cc
+import bottlesSold as bb
 
 
 def main() -> None:
@@ -10,9 +11,10 @@ def main() -> None:
 
         print("setup complete")
         print("press CTRL+C to exit")
-        while True:
-            cc.check()        
-        
+        t1 = Thread(target=cc.check)
+        t2 = Thread(target=bb.main)
+        t1.start()
+        t2.start()
     except KeyboardInterrupt:
         bs.GPIO.cleanup()
 
