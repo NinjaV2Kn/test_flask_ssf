@@ -18,7 +18,7 @@ def nanoleaf_indicator() -> None:
 
     x = [
         [],
-        [(panel_middle_bottom, (255, 0, 0))],
+        [(panel_middle_bottom, (255, 0, 0))], # nanoleaf set 1
         [
             (panel_top, (255, 255, 255)),
             (panel_left_middle, (255, 255, 255)),
