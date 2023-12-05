@@ -42,7 +42,7 @@ def update_bottle_count() -> None:
             count_dict = json.load(file)
             count = int(count_dict['count'])
     except FileNotFoundError:
-        print("FILE NOT FOUND")
+        print("BOTTLE_COUNT FILE NOT FOUND")
         count = 0
     
     # Increment the count

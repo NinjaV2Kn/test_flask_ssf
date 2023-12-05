@@ -1,6 +1,7 @@
-import time
 import BottleSensors as bs
 from nanoleafapi import Nanoleaf, NanoleafDigitalTwin
+
+ip = 
 
 nl = Nanoleaf("192.168.30.132") # setup nanoleaf
 digital_twin = NanoleafDigitalTwin(nl) # setup nanoleaf digital twin(used to control each individuial nanoleaf)
@@ -17,48 +18,48 @@ def nanoleaf_indicator() -> None:
     panel_top = 54208
 
     x = [
-        [],
+        [], # case 0
         [(panel_middle_bottom, (255, 0, 0))], # nanoleaf set 1
         [
             (panel_top, (255, 255, 255)),
-            (panel_left_middle, (255, 255, 255)),
+            (panel_left_middle, (255, 255, 255)), #case 2
             (panel_right_middle, (255, 255, 255))
         ],
-        [(panel_top, (255, 255, 255))],
-        [],
-        [(panel_right_bottom, (255, 100, 0))],
+        [(panel_top, (255, 255, 255))], # case 3
+        [], # case 4
+        [(panel_right_bottom, (255, 100, 0))],# case 5
         [
             (panel_right_bottom, (255, 100, 0)),
-            (panel_middle_bottom, (255, 100, 0))
+            (panel_middle_bottom, (255, 100, 0)) # case 6
         ],
         [
             (panel_right_middle, (255, 0, 0)),
-            (panel_left_middle, (255, 0, 0)),
+            (panel_left_middle, (255, 0, 0)), # case 7
             (panel_top, (255, 0, 0))
         ],
         [
-            (panel_left_middle, (255, 0, 0)),
+            (panel_left_middle, (255, 0, 0)), # case 8
             (panel_top, (255, 0, 0))
         ],
         [
-            (panel_top, (255, 0, 0))
+            (panel_top, (255, 0, 0)) # case 9
         ],
-        [],
-        [(panel_right_bottom, (0, 255, 0))],
+        [], # case 10
+        [(panel_right_bottom, (0, 255, 0))], # case 11
         [
-            (panel_right_bottom, (0, 255, 0)),
+            (panel_right_bottom, (0, 255, 0)), # case 12
             (panel_middle_bottom, (0, 255, 0))
         ],
         [
             (panel_right_middle, (255, 100, 0)),
-            (panel_left_middle, (255, 100, 0)),
+            (panel_left_middle, (255, 100, 0)), # case 13
             (panel_top, (255, 100, 0))
         ],
         [
             (panel_left_middle, (255, 100, 0)),
-            (panel_top, (255, 100, 0))
+            (panel_top, (255, 100, 0)) # case 14
         ],
-        [(panel_top, (255, 100, 0))]
+        [(panel_top, (255, 100, 0))] # case 15
     ]
 
     try:
