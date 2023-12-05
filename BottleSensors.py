@@ -14,6 +14,7 @@ def setup_GPIO() -> None:
         sensors = {}
         for x in range(1, 17):
             sensors[f"sensor{x}"] = config[f"sensor{x}"]
+        print(sensors)
         for sensor in sensors:
             GPIO.setup(sensors[sensor], GPIO.IN) #Setup each sensor as an input
     except Exception as e:
