@@ -1,27 +1,22 @@
-import RPi.GPIO as GPIO
 from flask import Flask, render_template
-app = Flask(__SSF__)
+import RPi.GPIO as GPIO
+
+app = Flask(__name__)  # Use __name__ instead of __SSF__
+
+sensor1 = 21  # Define sensor1, replace 21 with your actual GPIO pin number
 GPIO.setmode(GPIO.BCM)
-GPIO.setwarnings(False)
-sensor = 4
+GPIO.setup(sensor1, GPIO.IN)
 
-sensorSts = GPIO.LOW
-
-   # Set button and PIR sensor pins as an input
-GPIO.setup(sensor1, GPIO.IN)   
-
-	
-@app.route("/")
+@app.route('/')
 def index():
-	# Read Sensors Status
-	sensorSts = GPIO.input(sensor)
+   # Read Sensors Status
+   sensorSts = GPIO.input(sensor1)
 
-	templateData = {
+   templateData = {
       'title' : 'GPIO input Status!',
       'button'  : sensorSts,
-
-      }
+   }
    return render_template('index.html', **templateData)
 
 if __name__ == "__main__":
-    app.run(host='192.168.30.154', port=80, debug=True)
+   app.run(host='192.168.30.154', port=80, debug=True)
