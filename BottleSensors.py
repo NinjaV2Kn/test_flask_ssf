@@ -9,7 +9,8 @@ try:
             config = json.load(file)
     for x in range(16):
         x =+ 1
-        exec(f"sensor{x} = {config[f'sensor{x}']}")
+        exec(f"sensor{x} = {config['sensor{x}']}")
+        print(f"sensor{x}")
 except Exception as e:
     print(e)
 
