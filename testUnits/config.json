@@ -2,21 +2,4 @@
     "ipCounter":"192.168.30.132",
     "ipPayLeaf":"192.168.30.221",
     "endpoint":"https://ngitl-self-service-functions.azurewebsites.net/api/drinks/balance?",
-
-    "sensor1":4,
-    "sensor2":17,
-    "sensor3":27,
-    "sensor4":22,
-    "sensor5":5,
-    "sensor6":6,
-    "sensor7":13,
-    "sensor8":19,
-    "sensor9":26,
-    "sensor10":18,
-    "sensor11":23,
-    "sensor12":24,
-    "sensor13":25,
-    "sensor14":12,
-    "sensor15":16,
-    "sensor16":20
 }
