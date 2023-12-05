@@ -5,7 +5,7 @@ import json
 try:
     with open('config.json', 'r') as file:
         config = json.load(file)
-        ip = (config['ipCounter'])
+        ip = (config['ipPayLeaf'])
 except FileNotFoundError:
     print("CONFIG FILE NOT FOUND")
 
