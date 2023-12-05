@@ -20,27 +20,15 @@ sensor4 = 22 # bottle slot 4
 #sensor15 = 16 # bottle slot 15
 #sensor16 = 20 # bottle slot 16
 
+all_sensors = [sensor1, sensor2, sensor3, sensor4] #, sensor5, sensor6, sensor7, sensor8, sensor9, sensor10, sensor11, sensor12, sensor13, sensor14, sensor15, sensor16]
+
 def setup_GPIO() -> None:
     """setup the GPIO pins."""
     try:
         GPIO.setwarnings(False) #Disable warnings
         GPIO.setmode(GPIO.BCM) #Set GPIO pin numbering
-        GPIO.setup(sensor1, GPIO.IN) #Sensor 1
-        GPIO.setup(sensor2, GPIO.IN) #Sensor 2
-        GPIO.setup(sensor3, GPIO.IN) #Sensor 3
-        GPIO.setup(sensor4, GPIO.IN) #Sensor 4
-        #GPIO.setup(sensor5, GPIO.IN) #Sensor 5
-        #GPIO.setup(sensor6, GPIO.IN) #Sensor 6
-        #GPIO.setup(sensor7, GPIO.IN) #Sensor 7
-        #GPIO.setup(sensor8, GPIO.IN) #Sensor 8
-        #GPIO.setup(sensor9, GPIO.IN) #Sensor 9
-        #GPIO.setup(sensor10, GPIO.IN) #Sensor 10
-        #GPIO.setup(sensor11, GPIO.IN) #Sensor 11
-        #GPIO.setup(sensor12, GPIO.IN) #Sensor 12
-        #GPIO.setup(sensor13, GPIO.IN) #Sensor 13
-        #GPIO.setup(sensor14, GPIO.IN) #Sensor 14
-        #GPIO.setup(sensor15, GPIO.IN) #Sensor 15
-        #GPIO.setup(sensor16, GPIO.IN) #Sensor 16
+        for sensor in all_sensors:
+            GPIO.setup(sensor, GPIO.IN) #Setup GPIO as input
     except Exception as e:
         print(e)
 
@@ -56,7 +44,6 @@ def button_state(input_pin: int) -> bool:
     
 def bottle_counter() -> int:
     """counts how many bottles are in the fridge."""
-    all_sensors = [sensor1, sensor2, sensor3, sensor4] #, sensor5, sensor6, sensor7, sensor8, sensor9, sensor10, sensor11, sensor12, sensor13, sensor14, sensor15, sensor16]
     occupied_sensors = []
     try:
         for sensor in all_sensors:
