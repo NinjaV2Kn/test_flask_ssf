@@ -5,11 +5,11 @@ import json
 
 # each sensor is a GPIO pin so it can be diffrent(in this case buttons where used).
 try:
-    for x in range(16):
-        with open("config.json", "r") as file:
+    with open("config.json", "r") as file:
             config = json.load(file)
-            x =+ 1
-            exec(f"sensor{x} = {config['sensor{x}']}")
+    for x in range(16):
+        x =+ 1
+        exec(f"sensor{x} = {config[f'sensor{x}']}")
 except Exception as e:
     print(e)
 
