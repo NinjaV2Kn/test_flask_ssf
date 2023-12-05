@@ -1,7 +1,15 @@
 from nanoleafapi import Nanoleaf, NanoleafDigitalTwin
 import time
+import json
 
-nlp = Nanoleaf("192.168.30.221")
+try:
+    with open('config.json', 'r') as file:
+        config = json.load(file)
+        ip = (config['ipCounter'])
+except FileNotFoundError:
+    print("CONFIG FILE NOT FOUND")
+
+nlp = Nanoleaf(ip)
 nlp_twin = NanoleafDigitalTwin(nlp)
 
 def payLeaf() -> None:
@@ -25,7 +33,7 @@ def payLeaf2():
     for _ in range(2):
         nlp.set_brightness(60)
         time.sleep(pause)
-        nlp.set_brightness(10)
+        nlp.set_brightness(20)
         time.sleep(pause)
     nlp.set_effect(current_effect)
     nlp.set_brightness(50)

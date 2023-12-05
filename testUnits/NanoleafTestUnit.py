@@ -1,7 +1,15 @@
 import time
 from nanoleafapi import Nanoleaf, NanoleafDigitalTwin
+import json
 
-nl = Nanoleaf("192.168.30.132") # setup nanoleaf
+try:
+    with open('config.json', 'r') as file:
+        config = json.load(file)
+        ip = (config['ipCounter'])
+except FileNotFoundError:
+    print("CONFIG FILE NOT FOUND")
+
+nl = Nanoleaf(ip) # setup nanoleaf
 digital_twin = NanoleafDigitalTwin(nl) # setup nanoleaf digital twin(used to control each individuial nanoleaf)
 
 def nanoleaf_indicator() -> None:

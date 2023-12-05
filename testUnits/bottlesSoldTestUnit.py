@@ -4,8 +4,12 @@ import payLeafTestUnit as pl
 
 def check_and_update_balance(previous_balance) -> float:
     """Check the balance and update the count of bottles sold"""
-    # Replace endpoint_url with the actual endpoint URL
-    endpoint_url = 'https://ngitl-self-service-functions.azurewebsites.net/api/drinks/balance?'
+    try:
+        with open('config.json', 'r') as file:
+            config = json.load(file)
+            endpoint_url = str(config['endpoint'])
+    except FileNotFoundError:
+        print("CONFIG FILE NOT FOUND")
     
     # Request to get the balance
     response = requests.get(endpoint_url)
