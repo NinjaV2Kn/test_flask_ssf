@@ -1,9 +1,15 @@
 import BottleSensors as bs
 from nanoleafapi import Nanoleaf, NanoleafDigitalTwin
+import json
 
-ip = 
+try:
+    with open('config.json', 'r') as file:
+        config = json.load(file)
+        ip = (config['ipCounter'])
+except FileNotFoundError:
+    print("CONFIG FILE NOT FOUND")
 
-nl = Nanoleaf("192.168.30.132") # setup nanoleaf
+nl = Nanoleaf(ip) # setup nanoleaf
 digital_twin = NanoleafDigitalTwin(nl) # setup nanoleaf digital twin(used to control each individuial nanoleaf)
 
 def nanoleaf_indicator() -> None:
