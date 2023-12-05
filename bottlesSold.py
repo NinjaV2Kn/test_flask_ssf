@@ -52,7 +52,19 @@ def update_bottle_count() -> None:
     with open('bottle_count.json', 'w') as file:
         json.dump({"count": count}, file)
     
-    print(f"Bottle sold! Total bottles sold: {count}")
+    print(f"Total bottles sold: {count}")
+
+def soldPrint() -> None:
+    """Prints the total bottles sold"""
+    try:
+        with open('bottle_count.json', 'r') as file:
+            count_dict = json.load(file)
+            count = int(count_dict['count'])
+    except FileNotFoundError:
+        print("BOTTLE_COUNT FILE NOT FOUND")
+        count = None
+    print(f"Total bottles sold: {count}")
+
 
 def main() -> None:
     """Main function"""

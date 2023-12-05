@@ -11,6 +11,7 @@ def main() -> None:
 
         print("setup complete")
         print("press CTRL+C to exit")
+        bb.soldPrint()
         t1 = Thread(target=cc.check)
         t2 = Thread(target=bb.main)
         t1.start()
