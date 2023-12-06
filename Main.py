@@ -11,15 +11,15 @@ def main() -> None:
         bs.setup_GPIO()
         print("Sensor setup complete")
 
-        st.startFlask()
-        print("Flask setup complete")
-
         print("press CTRL+C to exit")
         bb.soldPrint()
         t1 = Thread(target=cc.check)
         t2 = Thread(target=bb.main)
         t1.start()
         t2.start()
+
+        st.startFlask()
+        print("Flask setup complete")
     except KeyboardInterrupt:
         bs.GPIO.cleanup()
 
