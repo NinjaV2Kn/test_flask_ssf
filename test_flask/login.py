@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, redirect
-from flask_security.utils import hash_password as hash_pass
 import os
 
 app = Flask(__name__)
