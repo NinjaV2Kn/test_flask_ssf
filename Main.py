@@ -20,6 +20,7 @@ def main() -> None:
 
         print("starting Webserver...")
         st.startFlask()
+        print("startup complete")
     except KeyboardInterrupt:
         bs.GPIO.cleanup()
 
