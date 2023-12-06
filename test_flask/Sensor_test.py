@@ -14,4 +14,4 @@ def index():
     return render_template('index.html', **templateData)
 
 def startFlask():
-    app.run(host='192.168.30.154', port=80, debug=True)
+    app.run(host='192.168.30.154', port=5000, debug=True)
