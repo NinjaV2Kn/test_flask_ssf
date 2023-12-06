@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+import BottleSensors as bs
 
 app = Flask(__name__)
 
@@ -6,7 +7,7 @@ app = Flask(__name__)
 def index() -> None:
     sensors = 10
     templateData = {
-        'button': sensors
+        'button': bs.bottle_counter(),
     }
 
     return render_template('Mate_website.html', **templateData)
