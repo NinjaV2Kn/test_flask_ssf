@@ -2,7 +2,7 @@ import BottleSensors as bs
 from threading import Thread
 import checkChange as cc
 import bottlesSold as bb
-import Sensor_test as st
+import test_flask.Sensor_test as st
 
 
 def main() -> None:
