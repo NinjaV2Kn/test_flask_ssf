@@ -18,8 +18,8 @@ def main() -> None:
         t1.start()
         t2.start()
 
+        print("starting Webserver...")
         st.startFlask()
-        print("Flask setup complete")
     except KeyboardInterrupt:
         bs.GPIO.cleanup()
 
