@@ -21,4 +21,4 @@ def login_page():
     return render_template("loginPage.html")
 
 if __name__ == "__main__":
-    app.run(host='192.168.30.154', port=8000, debug=True)
+    app.run(host='192.168.30.154', port=5010, debug=True)
