@@ -15,7 +15,7 @@ def login_page():
         #password matches the password in the database.  The password is stored
         #is a slated hash format, so you must hash the password before comparing
         #it.
-        if hash_pass(request.form['password']) == pw:
+        if request.form['password'] == pw:
             return redirect(request.args.get("next") or "/")        
 
     return render_template("loginPage.html")
