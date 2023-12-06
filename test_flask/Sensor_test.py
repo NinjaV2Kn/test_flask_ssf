@@ -1,17 +1,11 @@
-import RPi.GPIO as GPIO
 from flask import Flask, render_template
+import BottleSensors as bs
 
 app = Flask(__name__)
-GPIO.setmode(GPIO.BCM)
-GPIO.setwarnings(False)
-sensor = 4
-
-
-GPIO.setup(sensor, GPIO.IN)
 
 @app.route("/")
 def index():
-    sensorSts = GPIO.input(sensor)
+    sensorSts = bs.bottle_counter()
     templateData = {
         'title': 'GPIO input Status!',
         'button': sensorSts,
@@ -19,5 +13,5 @@ def index():
     
     return render_template('index.html', **templateData)
 
-if __name__ == "__main__":
+def startFlask():
     app.run(host='192.168.30.154', port=80, debug=True)
