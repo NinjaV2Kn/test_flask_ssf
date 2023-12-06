@@ -7,10 +7,10 @@ app = Flask(__name__)
 def index() -> None:
     sensors = 10
     templateData = {
-        'button': bs.bottle_counter(),
+        'button': bs.bottle_counter()
     }
 
     return render_template('Mate_website.html', **templateData)
 
-if __name__ == "__main__":
+def startFlask() -> None:
     app.run(host='192.168.30.154', port=5020, debug=True)

@@ -3,6 +3,7 @@ from threading import Thread
 import checkChange as cc
 import bottlesSold as bb
 import test_flask.Sensor_test as st
+import test_flask.TestWeb as tw
 
 
 def main() -> None:
@@ -19,8 +20,10 @@ def main() -> None:
         t2.start()
 
         print("starting Webserver...")
+        tw.startFlask()
         st.startFlask()
         print("startup complete")
+
         
     except KeyboardInterrupt:
         bs.GPIO.cleanup()
