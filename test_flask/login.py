@@ -17,7 +17,7 @@ def login_page():
         if request.form['password'] == pw:
             return redirect(request.args.get("next") or "/")        
 
-    return render_template("loginPage.html")
+    return render_template("LoginDashboard.html")
 
 if __name__ == "__main__":
     app.run(host='192.168.30.154', port=5010, debug=True)
