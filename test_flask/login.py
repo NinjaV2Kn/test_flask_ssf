@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, url_for, session
 import os
 
 app = Flask(__name__)
@@ -9,9 +9,9 @@ def index():
     Web Page to Display Login Form and process form. 
     """
     if request.method == "POST":
-        pw = os.environ.get('pass_api_key')
-        print(pw)
-        if request.content_type(str)['password'] == pw:
+        pw_attempt = request.form['password']
+
+        if pw_attempt == os.environ.get('pass_api_key'):
             return redirect(request.args.get("Mate_website.html") or "/")        
 
     return render_template("LoginDashboard.html")
