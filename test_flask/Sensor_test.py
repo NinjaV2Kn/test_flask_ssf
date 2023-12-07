@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 import BottleSensors as bs
 import os
+import get_bottle_count as gbc
 
 app = Flask(__name__)
 
@@ -10,8 +11,9 @@ def index():
     templateData = {
         'title': 'GPIO input Status!',
         'button': sensorSts,
-    }
     
+    }
+                         #'Mate_website.html'
     return render_template('index.html', **templateData)
 
 def startFlask():
