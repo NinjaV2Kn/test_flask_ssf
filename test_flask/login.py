@@ -10,7 +10,8 @@ def index():
     """
     if request.method == "POST":
         pw = os.environ.get('pass_api_key')
-        if request.form['password'] == pw:
+        print(pw)
+        if request.content_type(str)['password'] == pw:
             return redirect(request.args.get("Mate_website.html") or "/")        
 
     return render_template("LoginDashboard.html")
