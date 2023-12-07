@@ -12,7 +12,7 @@
     <button onclick="showWord()">Für Temperatur Klicken</button>
     <p id="ausgabe"></p>
 
-    <form method="POST" action="{{ url_for('TestWeb.py') }}">
+    <form method="POST" action="{{ url_for('Sensor_test.py') }}">
         <label for="inputSensors">Anzahl der betätigten Sensoren:</label>
         <input type="hidden" name="inputSensors" id="inputSensors" onchange="generateTable()" value="{{ inputSensors }}" />
         {{ button }}
