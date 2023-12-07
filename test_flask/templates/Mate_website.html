@@ -6,27 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mate</title>
 </head>
-
 <body>
     <h1 align="center"> SSF</h1>
-    <h1 align="left"> Anzahl Vekaufter Flaschen {{ quantity }}</h1>
-    <button onclick="showWord(anzahl)">Anzahl an verkauften Flaschen </button>
+    <button onclick="showWord()">Für Temperatur Klicken</button>
     <p id="ausgabe"></p>
 
-    <form method="POST" action="{{ url_for('LoginDashboard.html') }}"></form>
-    
-    <form method="POST" action="{{ url_for('Sensor_test.py') }}">
-        <label for="inputSensors">Anzahl der betätigten Sensoren:</label>
-        <input type="hidden" name="inputSensors" id="inputSensors" onchange="generateTable()" value="{{ inputSensors }}" />
-        {{ button }}
-    </form>
+    <label  for="inputSensors">Anzahl der betätigten Sensoren:</label>
+    <input type="hidden" id="inputSensors" onchange="generateTable()"> {{ button }} </input>
 
-    <div id="missingBottles"></div>
-    <table id="sensorTable" align="center"></table>
+    <div id="missingBottles" >
 
+    </div>
+        <table id="sensorTable" align="center"></table>
     <script>
+
         function showWord() {
-            document.getElementById("ausgabe").innerHTML = "9°C";
+            document.getElementById("ausgabe").innerHTML = " °C";
         }
 
         function createSensorHtml(isActivated) {
@@ -41,6 +36,7 @@
             var inputSensors = parseInt(document.getElementById("inputSensors").value, 10) || 0;
             var activatedSensors = inputSensors;
 
+            
             activatedSensors = Math.min(activatedSensors, 16);
 
             var missingSensors = 16 - activatedSensors;
@@ -48,7 +44,8 @@
             document.getElementById("missingBottles").innerHTML = "Fehlende Sensoren: " + missingSensors;
 
             var tableHtml = '';
-
+            
+            // um die tabele zu generieren 
             for (var i = 0; i < 4; i++) {
                 tableHtml += '<tr>';
                 for (var j = 0; j < 4; j++) {
@@ -63,5 +60,4 @@
         }
     </script>
 </body>
-
 </html>
