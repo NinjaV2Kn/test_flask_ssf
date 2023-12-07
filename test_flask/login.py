@@ -4,7 +4,7 @@ import os
 app = Flask(__name__)
 
 @app.route("/login/", methods=["GET", "POST"])
-def login_page():
+def index():
     """
     Web Page to Display Login Form and process form. 
     """
