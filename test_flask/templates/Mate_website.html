@@ -12,7 +12,7 @@
     <button onclick="showWord()">Für Temperatur Klicken</button>
     <p id="ausgabe"></p>
 
-    <form method="POST" action="{{ url_for('Main.py') }}">
+    <form method="POST" action="{{ url_for('TestWeb.py') }}">
         <label for="inputSensors">Anzahl der betätigten Sensoren:</label>
         <input type="hidden" name="inputSensors" id="inputSensors" onchange="generateTable()" value="{{ inputSensors }}" />
         {{ button }}
@@ -23,7 +23,7 @@
 
     <script>
         function showWord() {
-            document.getElementById("ausgabe").innerHTML = " °C";
+            document.getElementById("ausgabe").innerHTML = {{ temp }};
         }
 
         function createSensorHtml(isActivated) {
