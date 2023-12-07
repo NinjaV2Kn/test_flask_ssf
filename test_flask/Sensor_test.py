@@ -1,14 +1,19 @@
 from flask import Flask, render_template
 import BottleSensors as bs
 import os
-import bottle_counter as gbc
+
+
+
+with open("bottle_count.json", "r") as file:
+    data = json.load(file)
+    value = int(data['count'])
 
 app = Flask(__name__)
 
 @app.route("/")
 def index():
     sensorSts = bs.bottle_counter()
-    count     = gbc.sold_bottle_count
+    count     = value
     templateData = {
         'title': 'GPIO input Status!',
         'button': sensorSts,

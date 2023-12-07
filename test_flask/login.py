@@ -2,9 +2,15 @@ from flask import Flask, request, redirect, url_for, render_template, session, f
 import os
 import base64
 import time
+import BottleSensors as bs
+import json
 
 app = Flask(__name__)
 app.secret_key = 'FIAN23!de'
+
+with open("bottle_count.json", "r") as file:
+    data = json.load(file)
+    value = int(data['count'])
 
 @app.route("/")
 def index():
@@ -36,7 +42,14 @@ def login():
 @app.route('/protected')
 def protected():
     if is_logged_in():
-        return render_template('Mate_website.html')
+        sensorSts = bs.bottle_counter()
+        count = value
+        templateData = {
+            'title': 'GPIO input Status!',
+            'button': sensorSts,
+            'quantity': count,
+        }
+        return render_template("Mate_website.html", **templateData)
     else:
         return redirect(url_for('login'))
 
@@ -46,6 +59,7 @@ def protected():
 def logout():
     session['logged_in'] = False
     return redirect(url_for('login'))
+
 
 def start() -> None:
     app.run(host="192.168.30.154", port="5010", debug=True)
