@@ -9,7 +9,8 @@
 
 <body>
     <h1 align="center"> SSF</h1>
-    <button onclick="showWord()">Für Temperatur Klicken</button>
+    <h1 align="left"> Anzahl Vekaufter Flaschen {{ quantity }}</h1>
+    <button onclick="showWord(anzahl)">Anzahl an verkauften Flaschen </button>
     <p id="ausgabe"></p>
 
     <form method="POST" action="{{ url_for('LoginDashboard.html') }}"></form>
