@@ -2,8 +2,7 @@ import BottleSensors as bs
 from threading import Thread
 import checkChange as cc
 import bottlesSold as bb
-import test_flask.Sensor_test as st
-import test_flask.TestWeb as tw
+import login as lg
 
 
 def main() -> None:
@@ -20,8 +19,7 @@ def main() -> None:
         t2.start()
 
         print("starting Webserver...")
-        tw.startFlask()
-        st.startFlask()
+        lg.start()
         print("startup complete")
 
         
