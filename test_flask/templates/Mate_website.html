@@ -6,20 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mate</title>
 </head>
+
 <body>
     <h1 align="center"> SSF</h1>
     <button onclick="showWord()">Für Temperatur Klicken</button>
     <p id="ausgabe"></p>
 
-    <label  for="inputSensors">Anzahl der betätigten Sensoren:</label>
-    <input type="hidden" id="inputSensors" onchange="generateTable()"> {{ button }} </input>
+    <form method="POST" action="{{ url_for('Main.py') }}">
+        <label for="inputSensors">Anzahl der betätigten Sensoren:</label>
+        <input type="hidden" name="inputSensors" id="inputSensors" onchange="generateTable()" value="{{ inputSensors }}" />
+        {{ button }}
+    </form>
 
-    <div id="missingBottles" >
+    <div id="missingBottles"></div>
+    <table id="sensorTable" align="center"></table>
 
-    </div>
-        <table id="sensorTable" align="center"></table>
     <script>
-
         function showWord() {
             document.getElementById("ausgabe").innerHTML = " °C";
         }
@@ -36,7 +38,6 @@
             var inputSensors = parseInt(document.getElementById("inputSensors").value, 10) || 0;
             var activatedSensors = inputSensors;
 
-            
             activatedSensors = Math.min(activatedSensors, 16);
 
             var missingSensors = 16 - activatedSensors;
@@ -44,8 +45,7 @@
             document.getElementById("missingBottles").innerHTML = "Fehlende Sensoren: " + missingSensors;
 
             var tableHtml = '';
-            
-            // um die tabele zu generieren 
+
             for (var i = 0; i < 4; i++) {
                 tableHtml += '<tr>';
                 for (var j = 0; j < 4; j++) {
@@ -60,4 +60,5 @@
         }
     </script>
 </body>
+
 </html>
