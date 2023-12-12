@@ -27,7 +27,6 @@ def login():
     if request.method == 'POST':
         password_attempt = request.form['password']
 
-        # Replace 'your_password' with the actual password you want to use
         if password_attempt == app.secret_key:
             session['logged_in'] = True
             return redirect(url_for('protected'))
@@ -39,7 +38,7 @@ def login():
 
 
 # Route for the protected page
-@app.route('/protected')
+@app.route('/Mate')
 def protected():
     if is_logged_in():
         sensorSts = bs.bottle_counter()
