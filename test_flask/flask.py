@@ -3,6 +3,7 @@ import os
 import base64
 import time
 import BottleSensors as bs
+import Temp_sensor as tp
 import json
 
 app = Flask(__name__)
@@ -40,10 +41,17 @@ def login():
 # Route for the protected page
 @app.route('/Mate')
 def protected():
+
+    with open("bottle_count.json", "r") as file:
+        data = json.load(file)
+        value = int(data['count'])
+
     if is_logged_in():
         sensorSts = bs.bottle_counter()
         count = value
+        temper = tp.TempCalc()
         templateData = {
+            'temperature': temper,
             'title': 'GPIO input Status!',
             'button': sensorSts,
             'quantity': count,

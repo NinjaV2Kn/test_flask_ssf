@@ -3,7 +3,7 @@ import time
 import Nanoleaf as nls
 
 # each sensor is a GPIO pin so it can be diffrent(in this case buttons where used).
-sensor1 = 4 # bottle slot 1
+sensor1 = 18 # bottle slot 1
 sensor2 = 17 # bottle slot 2
 sensor3 = 27 # bottle slot 3
 sensor4 = 22 # bottle slot 4
