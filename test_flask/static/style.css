@@ -1,57 +1,88 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+}
 
-.h1{
+header {
     text-align: center;
-    color: rgb(160, 43, 43);
+    margin-top: 70px;
+}
+
+.h1 {
+    color: rgb(255, 222, 237);
     font-weight: bold;
     font-size: 50px;
-    font-family: 'Montserrat', sans-serif;
-}
-.box_h1{
-    background-color: #ffd563;
-    border-radius: 8px;
-    width: 120px;
-    height: fit-content;
-    align-self: center;
-    padding: 1px;
-    margin-left: 50%;
-    margin-top: 50px;
 }
 
-.box_h2{
-    background-color: #ffd563;
-    border-radius: 8px;
+.box_h1 {
+    background-color: rgba(223, 233, 255, 0.247);
+    border-radius: 70px;
+    width: 7%;
+    height: fit-content;
+    margin: 0 auto;
+    padding: 40px;
+}
+
+
+.main-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.h2 {
+    text-align: center;
+    color: rgb(250, 231, 231);
+    font-weight: bold;
+    font-size: x-large;
+}
+
+.box_h2 {
+    background-color: rgba(223, 233, 255, 0.247);
+    border-radius: 1200px;
     width: 300px;
     height: fit-content;
-    align-self: center;
+    margin: 20px auto;
     padding: 1px;
-    margin-left: 46%;
-    margin-top: 50px;
 }
-.h2{
+.h3 {
     text-align: center;
-    color: rgb(66, 89, 180);
-    font-weight:bold;
+    color: rgb(250, 231, 231);
+    font-weight: bold;
     font-size: x-large;
-    font-family: 'Montserrat', sans-serif;
+}
+.box_h3 {
+    background-color: rgba(223, 233, 255, 0.247);
+    border-radius: 120px;
+    width: 20%;
+    height: fit-content;
+    margin: 20px auto;
+    padding: 1px;
+}
+.h4 {
+    text-align: center;
+    color: rgb(250, 231, 231);
+    font-weight: bold;
+    font-size: x-large;
 }
 
-.sensorTable{
-    align-items: right;
-}
 
-td{
-    width: 500px;
-    align-items: center;
-    justify-content: center;
+.box_h4 {
+    background-color: rgba(223, 233, 255, 0.247);
+    border-radius: 120px;
+    width: 300px;
+    height: fit-content;
+    margin: 20px auto;
+    padding: 1px;
 }
-
-.Background{
-    background-image: url(../static/Background_Mate.png);
+.Background {
+    background-image: url(../static/hintergrund.jpg);
     background-size: cover;
     background-position: center;
-    margin-top: 0%;
-    padding-top: 0%;
-    background-color: #D98E1B;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    height: 89vh;
+    
 }
