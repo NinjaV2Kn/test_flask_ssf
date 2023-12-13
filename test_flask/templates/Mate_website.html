@@ -2,34 +2,44 @@
 <html lang="de">
 
 <head>
-    <link rel="stylesheet" href="../static/style.css">
+<link rel="stylesheet" href="../static/aufLock.css">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mate</title>
 </head>
 
 <body onload="generateTable()" class="Background">
-    <div class="box_h1"><h1 class="h1" align="center"> SSF</h1></div>
-    <div class="box_h2"><h2 class="h2" align="left"> Anzahl Vekaufter Flaschen {{ quantity }}</h2></div>
-    <button onclick="showWord()">Temperatur</button>
-    <div><p id="ausgabe"></p></div>
+    
+    <div class="box_h1">
+        <h1 class="h1" align="center"> SSF</h1>
+    </div>
+    
+    <div class="box_h2">
+        <h2 class="h2" align="center"> Anzahl Vekaufter Flaschen {{ quantity }}</h2>
+    </div>
+    
+    <div class="box_h3">
+        <h3 class="h3" align="center">{{ temperature }}°C</h3>
+    </div>
+    
+    <div class="box_h4">
+        <h3 class="h4" align="left">Vorhandene Flaschen: {{ button }}</h3>
+    </div>
 
+    <div><p id="ausgabe"></p></div>
+    
     <form method="POST" action="{{ url_for('login') }}"></form>
     
     <form method="POST" action="{{ url_for('protected')}}">
-        <label for="inputSensors">Vorhandene FLaschen:</label>
+        <div><label for="inputSensors"></label></div>
         <input type="hidden" name="inputSensors" id="inputSensors" onchange="generateTable()" value="{{ button }}" />
-        {{ button }}
+        
     </form>
     
     <div id="missingBottles"></div>
-    <div class="table_mate"><table id="sensorTable" align="center"></table></div>
+    <div class="table_mate"><table id="sensorTable"></table></div>
 
-    <script>
-        function showWord() {
-            document.getElementById("ausgabe").innerHTML = "{{ temperature }}°C";
-        }
-
+    <script align="center">
         function createSensorHtml(isActivated) {
             if (isActivated) {
                 return '<td><img src="../static/Mate mitte.png" alt="voll" width="30%" height="auto"></td>';
@@ -45,8 +55,8 @@
             activatedSensors = Math.min(activatedSensors, 16);
 
             var missingSensors = 16 - activatedSensors;
-
-            document.getElementById("missingBottles").innerHTML = "Leere Slots " + missingSensors;
+            
+            document.getElementById("missingBottles").innerHTML= "Leere Slots" + missingSensors;
 
             var tableHtml = '';
 
@@ -66,4 +76,4 @@
     </script>
 </body>
 
-</html>
+</html> 
