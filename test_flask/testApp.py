@@ -54,7 +54,7 @@ def protected():
                 'button': sensorSts,
                 'quantity': count,
             }
-            return render_template("Mate_website.html", **templateData)
+            return render_template("probe.html", **templateData)
         else:
             return redirect(url_for('login'))
     except Exception as e:
