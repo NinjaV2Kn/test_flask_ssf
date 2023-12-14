@@ -4,9 +4,9 @@ from azure.iot.hub import IoTHubRegistryManager
 
 MESSAGE_COUNT = 2
 AVG_WIND_SPEED = 10.0
-bottles = "{\"service client sent bottle status\"}"
+MSG_TXT = "{\"service client sent a message\": %.2f}"
 
-CONNECTION_STRING = "HostName=fian23-fridge-hub.azure-devices.net;DeviceId=Raspberry;SharedAccessKey=FnuqGxLtzbBQS1aQXgBE02dR5RTLyOxfhAIoTBgmTKU="
+CONNECTION_STRING = "HostName=fian23-fridge-hub.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey=xa0hFfvdfiVqKWa1V4tFUKDORcu4u10spAIoTO70lmE="
 DEVICE_ID = "Raspberry"
 
 def iothub_messaging_sample_run():
@@ -16,26 +16,30 @@ def iothub_messaging_sample_run():
 
         for i in range(0, MESSAGE_COUNT):
             print ( 'Sending message: {0}'.format(i) )
-            data = MSG_TXT % 16
+            data = MSG_TXT % (AVG_WIND_SPEED + (random.random() * 4 + 2))
 
             props={}
             # optional: assign system properties
-            props.update(messageId = "bottles" % i)
+            props.update(messageId = "message_%d" % i)
             props.update(correlationId = "correlation_%d" % i)
             props.update(contentType = "application/json")
+
+            # optional: assign application properties
+            prop_text = "PropMsg_%d" % i
+            props.update(testProperty = prop_text)
 
             registry_manager.send_c2d_message(DEVICE_ID, data, properties=props)
 
         try:
             # Try Python 2.xx first
-            raw_input("Press Enter to continue...\n")
+            input("Press Enter to continue...\n")
         except:
             pass
             # Use Python 3.xx in the case of exception
             input("Press Enter to continue...\n")
 
     except Exception as ex:
-        print ( "Unexpected error {0}" % ex )
+        print ( "Unexpected error {0}", ex )
         return
     except KeyboardInterrupt:
         print ( "IoT Hub C2D Messaging service sample stopped" )
