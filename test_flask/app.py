@@ -41,25 +41,27 @@ def login():
 # Route for the protected page
 @app.route('/Mate')
 def protected():
+    try:
+        with open("bottle_count.json", "r") as file:
+            data = json.load(file)
+            value = int(data['count'])
 
-    with open("bottle_count.json", "r") as file:
-        data = json.load(file)
-        value = int(data['count'])
-
-    if is_logged_in():
-        sensorSts = bs.bottle_counter()
-        count = value
-        temper = tp.TempCalc()
-        templateData = {
-            'temperature': temper,
-            'title': 'GPIO input Status!',
-            'button': sensorSts,
-            'quantity': count,
-        }
-        return render_template("Mate_website.html", **templateData)
-    else:
+        if is_logged_in():
+            sensorSts = bs.bottle_counter()
+            count = value
+            temper = tp.TempCalc()
+            templateData = {
+                'temperature': temper,
+                'title': 'GPIO input Status!',
+                'button': sensorSts,
+                'quantity': count,
+            }
+            return render_template("Mate_website.html", **templateData)
+        else:
+            return redirect(url_for('login'))
+    except Exception as e:
+        print(e)
         return redirect(url_for('login'))
-
 
 # Route for logging out
 @app.route('/logout')
