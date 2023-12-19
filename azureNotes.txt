@@ -1,1 +1,0 @@
-HostName=fian23-fridge-hub.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey=xa0hFfvdfiVqKWa1V4tFUKDORcu4u10spAIoTO70lmE=
