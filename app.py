@@ -2,8 +2,7 @@ from flask import Flask, request, redirect, url_for, render_template, session, f
 import os
 import base64
 import time
-#import BottleSensors as bs
-#import Temp_sensor as tp
+import dataReceived as rd
 import json
 
 app = Flask(__name__)
@@ -85,7 +84,7 @@ def protected():
         with open("bottle_count.json", "r") as file:
             data = json.load(file)
             value = int(data['count'])
-            mainMessage()
+
 
         if is_logged_in():
             sensorSts = bottles
@@ -110,7 +109,7 @@ def logout():
     session['logged_in'] = False
     return redirect(url_for('login'))
 
-
+mainMessage()
 #def start() -> None:
  #   app.run(host="192.168.30.154", port="5010", debug=True)
 

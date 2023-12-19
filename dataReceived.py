@@ -2,6 +2,7 @@ import time
 from azure.iot.device import IoTHubDeviceClient
 
 RECEIVED_MESSAGES = 0
+bottles: int= 0
 
 CONNECTION_STRING = "HostName=fian23-fridge-hub.azure-devices.net;DeviceId=Raspberry;SharedAccessKey=FnuqGxLtzbBQS1aQXgBE02dR5RTLyOxfhAIoTBgmTKU="
 
@@ -12,8 +13,8 @@ def message_handler(message):
     print("Message received:")
 
     # print data from both system and application (custom) properties
-    for property in vars(message).items():
-        print ("    {}".format(property))
+    bottles = vars(message)['custom_properties']['BottleSensors']
+    print(bottles)
 
     print("Total calls received: {}".format(RECEIVED_MESSAGES))
 
