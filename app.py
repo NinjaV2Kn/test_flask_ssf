@@ -13,7 +13,7 @@ with open("bottle_count.json", "r") as file:
     data = json.load(file)
     value = int(data['count'])
 
-bottles = rd.message_handler()
+bottles = 12
 
 @app.route("/")
 def index():
@@ -50,6 +50,7 @@ def protected():
 
 
         if is_logged_in():
+            bottles = rd.message_handler()
             sensorSts = bottles
             count = value
             temper = 5 #tp.TempCalc()
