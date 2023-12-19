@@ -67,8 +67,6 @@ def protected():
 def logout():
     session['logged_in'] = False
     return redirect(url_for('login'))
-
-mainMessage()
 #def start() -> None:
  #   app.run(host="192.168.30.154", port="5010", debug=True)
 
