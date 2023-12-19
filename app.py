@@ -70,6 +70,8 @@ def logout():
 #def start() -> None:
  #   app.run(host="192.168.30.154", port="5010", debug=True)
 
-if __name__ == "__main__":
-    t1 = Thread(target=app.run)
-    t2 = Thread(target=rd.main)
+
+t1 = Thread(target=app.run)
+t2 = Thread(target=rd.main)
+t1.start()
+t2.start()
