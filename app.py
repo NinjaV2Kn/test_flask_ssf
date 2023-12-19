@@ -12,12 +12,6 @@ with open("bottle_count.json", "r") as file:
     data = json.load(file)
     value = int(data['count'])
 
-
-from azure.iot.device import IoTHubDeviceClient
-import dataReceived as dr
-
-bottles = dr.message_handler()
-
 @app.route("/")
 def index():
     return render_template("login.html")
