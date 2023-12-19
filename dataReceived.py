@@ -1,6 +1,7 @@
 import time
 from azure.iot.device import IoTHubDeviceClient
 import json
+import app as app
 
 bottles: int= 0
 
@@ -12,8 +13,6 @@ def message_handler(message) -> int:
     print(bottles)
     with open("bottle_count.json", "w") as file:
         json.dump({"bottles": bottles}, file)
-        
-
 
 def main():
     print ("Starting the Python IoT Hub C2D Messaging device sample...")
@@ -37,3 +36,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+    app.run
