@@ -1,0 +1,5 @@
+{
+    "ipCounter":"192.168.30.132",
+    "ipPayLeaf":"192.168.30.221",
+    "endpoint":"https://ngitl-self-service-functions.azurewebsites.net/api/drinks/balance?"
+}

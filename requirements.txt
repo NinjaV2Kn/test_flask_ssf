@@ -1,2 +1,4 @@
 RPi.GPIO~=0.7.1
 nanoleafapi~=2.1.2
+flask~=3.0.0
+Flask-Login~=0.3.2
