@@ -55,6 +55,7 @@ def protected():
                 'button': sensorSts,
                 'quantity': count,
             }
+            rd.main()
             return render_template("probe.html", **templateData)
         else:
             return redirect(url_for('login'))
@@ -70,9 +71,3 @@ def logout():
 #def start() -> None:
  #   app.run(host="192.168.30.154", port="5010", debug=True)
 
-def main():
-    t1 = Thread(target=rd.main)
-    t1.start()
-    app.run()
-
-main()
