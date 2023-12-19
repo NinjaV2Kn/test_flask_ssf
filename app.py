@@ -3,6 +3,8 @@ import os
 import base64
 import time
 import json
+import threading
+import dataReceived as rd
 
 app = Flask(__name__)
 app.secret_key = 'FIAN23!de'
@@ -10,6 +12,8 @@ app.secret_key = 'FIAN23!de'
 with open("bottle_count.json", "r") as file:
     data = json.load(file)
     value = int(data['count'])
+
+bottles = rd.message_handler()
 
 @app.route("/")
 def index():
@@ -71,4 +75,5 @@ def logout():
  #   app.run(host="192.168.30.154", port="5010", debug=True)
 
 if __name__ == "__main__":
-    app.run()
+    t1 = Thread(target=app.run)
+    t2 = Thread(target=rd.main)
