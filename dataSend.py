@@ -18,17 +18,7 @@ def iothub_messaging_sample_run():
             print ( 'Sending message: {0}'.format(i) )
             data = MSG_TXT % (AVG_WIND_SPEED + (random.random() * 4 + 2))
 
-            props={}
-            # optional: assign system properties
-            props.update(messageId = "message_%d" % i)
-            props.update(correlationId = "correlation_%d" % i)
-            props.update(contentType = "application/json")
-
-            # optional: assign application properties
-            prop_text = "PropMsg_%d" % i
-            props.update(testProperty = prop_text)
-
-            registry_manager.send_c2d_message(DEVICE_ID, data, properties=props)
+            registry_manager.send_c2d_message(DEVICE_ID, data)
 
         try:
             # Try Python 2.xx first
