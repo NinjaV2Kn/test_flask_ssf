@@ -71,3 +71,5 @@ def logout():
 #def start() -> None:
  #   app.run(host="192.168.30.154", port="5010", debug=True)
 
+if __name__ == "__main__":
+    app.run()
