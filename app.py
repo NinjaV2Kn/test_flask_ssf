@@ -50,7 +50,7 @@ def protected():
 
 
         if is_logged_in():
-            sensorSts = 12
+            sensorSts = bottles
             count = value
             temper = 5 #tp.TempCalc()
             templateData = {
