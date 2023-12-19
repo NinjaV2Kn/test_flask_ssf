@@ -9,12 +9,6 @@ import dataReceived as rd
 app = Flask(__name__)
 app.secret_key = 'FIAN23!de'
 
-with open("bottle_count.json", "r") as file:
-    data = json.load(file)
-    value = int(data['count'])
-
-bottles = 12
-
 @app.route("/")
 def index():
     return render_template("login.html")
@@ -47,13 +41,14 @@ def protected():
         with open("bottle_count.json", "r") as file:
             data = json.load(file)
             value = int(data['count'])
+            bottles = int(data['bottles'])
+            temperature = int(data['temp'])
 
 
         if is_logged_in():
-            bottles = rd.message_handler()
             sensorSts = bottles
             count = value
-            temper = 5 #tp.TempCalc()
+            temper = temperature
             templateData = {
                 'temperature': temper,
                 'title': 'GPIO input Status!',

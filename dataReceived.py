@@ -1,5 +1,6 @@
 import time
 from azure.iot.device import IoTHubDeviceClient
+import json
 
 bottles: int= 0
 
@@ -9,9 +10,9 @@ def message_handler(message) -> int:
     # print data from both system and application (custom) properties
     bottles = vars(message)['custom_properties']['BottleSensors']
     print(bottles)
-    return bottles
-
-    
+    with open("bottle_count.json", "w") as file:
+        json.dump({"bottles": bottles}, file)
+        
 
 
 def main():
