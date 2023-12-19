@@ -2,8 +2,8 @@ from flask import Flask, request, redirect, url_for, render_template, session, f
 import os
 import base64
 import time
-import BottleSensors as bs
-import Temp_sensor as tp
+#import BottleSensors as bs
+#import Temp_sensor as tp
 import json
 
 app = Flask(__name__)
@@ -47,9 +47,9 @@ def protected():
             value = int(data['count'])
 
         if is_logged_in():
-            sensorSts = bs.bottle_counter()
+            sensorSts = 12 #bs.bottle_counter()
             count = value
-            temper = tp.TempCalc()
+            temper = 5 #tp.TempCalc()
             templateData = {
                 'temperature': temper,
                 'title': 'GPIO input Status!',
