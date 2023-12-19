@@ -3,9 +3,9 @@ import os
 import base64
 import time
 import json
-from threading import Thread
 import dataReceived as rd
 
+rd.main()
 app = Flask(__name__)
 app.secret_key = 'FIAN23!de'
 
@@ -38,7 +38,7 @@ def login():
 @app.route('/Mate')
 def protected():
     try:
-        with open("bottle_count.json", "r") as file:
+        with open("bottle_count.json", "r") as file: #opens the json to get the data
             data = json.load(file)
             value = int(data['count'])
             bottles = int(data['bottles'])
