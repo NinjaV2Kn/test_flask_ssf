@@ -2,7 +2,6 @@ from flask import Flask, request, redirect, url_for, render_template, session, f
 import os
 import base64
 import time
-import dataReceived as rd
 import json
 
 app = Flask(__name__)
@@ -47,7 +46,7 @@ def protected():
 
 
         if is_logged_in():
-            sensorSts = bottles
+            sensorSts = 12
             count = value
             temper = 5 #tp.TempCalc()
             templateData = {
