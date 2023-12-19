@@ -16,7 +16,6 @@ import time
 from azure.iot.device import IoTHubDeviceClient
 import dataReceived as dr
   
-dr.main()
 bottles = dr.message_handler()
 
 @app.route("/")
