@@ -3,7 +3,7 @@ import os
 import base64
 import time
 import json
-import threading
+from threading import Thread
 import dataReceived as rd
 
 app = Flask(__name__)
