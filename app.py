@@ -4,6 +4,7 @@ import base64
 import time
 import json
 import threading
+import dataReceived as rd
 
 app = Flask(__name__)
 app.secret_key = 'FIAN23!de'
@@ -69,6 +70,9 @@ def logout():
 #def start() -> None:
  #   app.run(host="192.168.30.154", port="5010", debug=True)
 
-
-if __name__ == "__main__":
+def main():
+    t1 = Thread(target=rd.main)
+    t1.start()
     app.run()
+
+main()
