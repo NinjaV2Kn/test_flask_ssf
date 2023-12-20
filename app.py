@@ -53,7 +53,6 @@ def protected():
                 'button': sensorSts,
                 'quantity': count,
             }
-            rd.main()
             return render_template("probe.html", **templateData)
         else:
             return redirect(url_for('login'))
