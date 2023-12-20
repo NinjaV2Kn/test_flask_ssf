@@ -28,15 +28,6 @@
 
 
     <div><p id="ausgabe"></p></div>
-    
-    <form method="POST" action="{{ url_for('login') }}"></form>
-    
-    <form method="POST" action="{{ url_for('protected')}}">
-        <div><label for="inputSensors"></label></div>
-        <input type="hidden" name="inputSensors" id="inputSensors" value="{{ button }}" />
-        
-    </form>
-
     <script>
         function updateValues() {
             fetch('/get_values')
@@ -52,6 +43,14 @@
         // Update the values every 5 seconds
         setInterval(updateValues, 30000);
     </script>
+    <form method="POST" action="{{ url_for('login') }}"></form>
+    
+    <form method="POST" action="{{ url_for('protected')}}">
+        <div><label for="inputSensors"></label></div>
+        <input type="hidden" name="inputSensors" id="inputSensors" value="{{ button }}" />
+        
+    </form>
+
 </body>
 
 </html>
