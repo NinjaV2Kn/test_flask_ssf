@@ -3,7 +3,6 @@ import os
 import base64
 import time
 import json
-import dataReceived as rd
 
 rd.main()
 app = Flask(__name__)
