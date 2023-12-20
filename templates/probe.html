@@ -27,24 +27,7 @@
     </div>
 
 
-    <div><p id="ausgabe"></p></div>
-    <script>
-        function updateValues() {
-            fetch('/get_values')
-                .then(response => response.json())
-                .then(data => {
-                    // Update the elements with the new values
-                    document.querySelector('.h2').textContent = 'Anzahl Vekaufter Flaschen ' + data.quantity;
-                    document.querySelector('.h3').textContent = data.temperature + '°C';
-                    document.querySelector('.h4').textContent = 'Vorhandene Flaschen: ' + data.button;
-                });
-        }
-
-        // Update the values every 5 seconds
-        setInterval(updateValues, 30000);
-    </script>
-    <form method="POST" action="{{ url_for('login') }}"></form>
-        
+    <div><p id="ausgabe"></p></div>    
 
 </body>
 
