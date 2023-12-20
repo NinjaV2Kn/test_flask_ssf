@@ -4,7 +4,6 @@ import base64
 import time
 import json
 
-rd.main()
 app = Flask(__name__)
 app.secret_key = 'FIAN23!de'
 
