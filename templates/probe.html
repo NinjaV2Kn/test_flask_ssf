@@ -8,13 +8,7 @@
 <title>Mate</title>
 </head>
 
-<body onload="generateTable()" class="Background">
-    
-    <!--
-    <div class="box_h1">
-        <h1 class="h1" align="center"> SSF</h1>
-    </div>
-    -->
+<body class="Background">
     
     <div class="box_h2">
         <h4 class="h2" align="center"> Anzahl Vekaufter Flaschen {{ quantity }}</h4>
@@ -39,10 +33,25 @@
     
     <form method="POST" action="{{ url_for('protected')}}">
         <div><label for="inputSensors"></label></div>
-        <input type="hidden" name="inputSensors" id="inputSensors" onchange="generateTable()" value="{{ button }}" />
+        <input type="hidden" name="inputSensors" id="inputSensors" value="{{ button }}" />
         
     </form>
 
+    <script>
+        function updateValues() {
+            fetch('/get_values')
+                .then(response => response.json())
+                .then(data => {
+                    // Update the elements with the new values
+                    document.querySelector('.h2').textContent = 'Anzahl Vekaufter Flaschen ' + data.quantity;
+                    document.querySelector('.h3').textContent = data.temperature + '°C';
+                    document.querySelector('.h4').textContent = 'Vorhandene Flaschen: ' + data.button;
+                });
+        }
+
+        // Update the values every 5 seconds
+        setInterval(updateValues, 30000);
+    </script>
 </body>
 
 </html>

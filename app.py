@@ -85,6 +85,19 @@ def protected():
         print(e)
         return redirect(url_for('login'))
 
+@app.route('/get_values')
+    def get_values():
+        # Get the new values
+        with open("bottle_count.json", "r") as file: #opens the json to get the data
+            print("loaded json file")
+            data = json.load(file)
+            new_quantity = int(data['count'])
+            new_button = int(data['bottles'])
+            new_temperature = int(data['temp'])
+            print("loaded data from json")
+        # Return the new values to the webpage
+        return jsonify({'quantity': new_quantity, 'temperature': new_temperature, 'button': new_button})
+
 # Route for logging out
 @app.route('/logout')
 def logout():
