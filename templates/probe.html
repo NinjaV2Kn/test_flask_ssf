@@ -44,12 +44,7 @@
         setInterval(updateValues, 30000);
     </script>
     <form method="POST" action="{{ url_for('login') }}"></form>
-    
-    <form method="POST" action="{{ url_for('protected')}}">
-        <div><label for="inputSensors"></label></div>
-        <input type="hidden" name="inputSensors" id="inputSensors" value="{{ button }}" />
         
-    </form>
 
 </body>
 
