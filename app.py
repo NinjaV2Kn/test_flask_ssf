@@ -66,7 +66,6 @@ def protected():
             temperature = int(data['temp'])
             print("loaded data from json")
 
-
         if is_logged_in():
             sensorSts = bottles
             count = value
