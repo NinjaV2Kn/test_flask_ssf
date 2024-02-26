@@ -1,11 +1,57 @@
 <!DOCTYPE html>
-   <head>
-      <title>{{ title }}</title>
-      <link rel="stylesheet" href='../static/style.css'/>
-   </head>
-   <body>
-	  <h1>{{ title }}</h1>
-      <h2>Button pressed:  {{ button }}</h1>
+<html lang="de">
 
-   </body>
+<head>
+    <link rel="stylesheet" href="../static/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title
+    >Anzahl an Flaschen {{button}}</title>
+</head>
+
+<body class="Background" onload="missingB()">
+    
+    <a class="fp-logo" target="_blank" href="https://www.flaschenpost.de/p/club-mate/club-mate-original">
+        <img src="../static/fp-logo.png" alt="Flaschenpost"/>
+    </a>
+
+
+<tbody>    
+    <div class="box_h2">
+        <h4 id="animaton" class="h2"> Anzahl Vekaufter Flaschen {{ quantity }}</h4>
+    </div>
+    
+    <div class="box_h3">
+        <h3 id="animaton" class="h3">{{ temperature }}°C</h3>
+    </div>
+    
+    <div class="box_h4">
+        <h3 id="animaton" class="h4">Vorhandene Flaschen: {{ button }}</h3>
+    </div>
+    
+    <div class="box_h5">
+        <h3 id="paste" class="h4"></h3>
+    </div>
+
+    <div><p id="ausgabe"></p></div>   
+
+</tbody>
+</body>
+
+<script>
+    function missingB() {
+        var buttonValue = parseInt("{{ button }}");
+        var pasteElement = document.getElementById("paste");
+
+        switch(buttonValue){
+            case 15:
+                pasteElement.innerHTML = 'Es fehlt ' + (16 - buttonValue) + ' Flasche';
+                break;
+            default:
+                pasteElement.innerHTML = 'Es fehlen ' + (16 - buttonValue) + ' Flaschen';
+                break;
+        }
+    }
+</script>
+
 </html>

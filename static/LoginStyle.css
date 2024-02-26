@@ -2,17 +2,17 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Montserrat', sans-serif;
-    background-color: #D98E1B;
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-image: url(../static/Background.png);
+    background-image: url(../static/hintergrund.jpg);
     background-size: cover;
 }
 
 .login-container {
-    background-color: white;
+    background-color: rgba(228, 228, 228, 0.552);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -20,12 +20,31 @@ body {
     width: 400px;
 }
 
+@keyframes move-bg{
+    to{
+        background-position: var(--bg-size) 0;
+    }
+}
+
 .logo {
-    color: #D98E1B;
-    font-size: 48px;
+    color: rgb(245, 245, 245);
+    font-size: clamp(3rem, 25vmin, 8rem);
     font-weight: 700;
     margin-bottom: 20px;
     font-family: 'Montserrat', sans-serif;
+    --bg-size: 400%;
+    --color-one: hsl(315, 100%, 50%);
+    --color-two: hsl(258, 95%, 55%);
+    background: linear-gradient(
+        90deg,
+        var(--color-one),
+        var(--color-two),
+        var(--color-one))
+        0 0 / var(--bg-size) 100%;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: move-bg 13s infinite linear;
 }
 
 .input-group {
@@ -37,12 +56,12 @@ body {
     padding: 10px;
     margin: 8px 0;
     box-sizing: border-box;
-    border: 1px solid #D98E1B;
+    border: none;
     border-radius: 4px;
 }
 
 .login-btn {
-    background-color: #D98E1B;
+    background-color: #eca7409f;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -52,3 +71,9 @@ body {
     font-weight: 600;
     width: 100%;
 }
+
+#password{
+    background-color: rgb(255, 255, 255);
+    opacity: 0.75;
+}
+

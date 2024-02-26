@@ -1,14 +1,15 @@
-from flask import Flask, request, redirect, url_for, render_template, session, flash, jsonify
+from flask import Flask, request, redirect, url_for, render_template, session, flash
 import os
 import base64
 import time
 import json
 from azure.iot.device import IoTHubDeviceClient
+from werkzeug.security import generate_password_hash
 
 CONNECTION_STRING = "HostName=fian23-fridge-hub.azure-devices.net;DeviceId=Raspberry;SharedAccessKey=FnuqGxLtzbBQS1aQXgBE02dR5RTLyOxfhAIoTBgmTKU="
 
 app = Flask(__name__)
-app.secret_key = 'FIAN23!de'
+app.secret_key = generate_password_hash('FIAN23!de')
 
 client = IoTHubDeviceClient.create_from_connection_string(CONNECTION_STRING)
 
@@ -30,7 +31,7 @@ def login():
     if request.method == 'POST':
         password_attempt = request.form['password']
 
-        if password_attempt == app.secret_key:
+        if generate_password_hash(password_attempt) == generate_password_hash(app.secret_key):
             session['logged_in'] = True
             return redirect(url_for('protected'))
         else:
@@ -77,7 +78,7 @@ def protected():
                 'quantity': count,
             }
             print("loaded is_logged_in")
-            return render_template("probe.html", **templateData)
+            return render_template("index.html", **templateData)
         else:
             return redirect(url_for('login'))
     except Exception as e:
