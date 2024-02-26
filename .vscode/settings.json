@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/b506aebf-0f1c-4a19-8515-1bfd03c6de18/resourceGroups/fian23_fridge/providers/Microsoft.Web/sites/fian23-ssf",
+    "appService.deploySubpath": "."
+}
