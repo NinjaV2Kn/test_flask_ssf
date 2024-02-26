@@ -27,7 +27,7 @@ header {
 }
 
 .fp-logo img {
-    width: 6vw;
+    width: 5vw;
     display: block;
 }
 
@@ -50,7 +50,7 @@ header {
     width: 40vw; 
     max-width: 80vw; 
     height: fit-content;
-    max-height: 15vw;
+    max-height: 13vw;
     margin: 0.75vw;
     padding: 0.75vw;
     border-radius: 1vw;
@@ -72,7 +72,7 @@ header {
 }
 
 .Background {
-    background-image: url(../static/hintergrund.jpg);
+    background-image: url(../static/BackgroundIndex.jpg);
     background-size: cover;
     background-position: center;
     height: 100vh;
