@@ -4,7 +4,7 @@ import base64
 import time
 import json
 from azure.iot.device import IoTHubDeviceClient
-from werkzeug.security import generate_password_hash
+from werkzeug.security import generate_password_hash, check_password_hash
 
 CONNECTION_STRING = "HostName=fian23-fridge-hub.azure-devices.net;DeviceId=Raspberry;SharedAccessKey=FnuqGxLtzbBQS1aQXgBE02dR5RTLyOxfhAIoTBgmTKU="
 
@@ -31,7 +31,7 @@ def login():
     if request.method == 'POST':
         password_attempt = request.form['password']
 
-        if generate_password_hash(password_attempt) == generate_password_hash(app.secret_key):
+        if check_password_hash(app.secret_key, password_attempt):
             session['logged_in'] = True
             return redirect(url_for('protected'))
         else:
