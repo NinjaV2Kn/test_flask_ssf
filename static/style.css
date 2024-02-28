@@ -122,7 +122,7 @@ header {
 }
 #slide_left_box_h2{
     position: absolute;
-    left: -30vw;
+    left: -50%;
     -webkit-animation: slide_left 1s forwards;
     -webkit-animation-delay: 0.5s;
     animation: slide_left 1s forwards;
@@ -131,7 +131,7 @@ header {
 }
 #slide_left_box_h4{
     position: absolute;
-    left: -30vw;
+    left: -50%;
     -webkit-animation: slide_left 1s forwards;
     -webkit-animation-delay: 0.5s;
     animation: slide_left 1s forwards;
@@ -140,7 +140,7 @@ header {
 }
 #slide_right_box_h3{
     position: absolute;
-    right: -30vw;
+    right: -50%;
     -webkit-animation: slide_right 1s forwards;
     -webkit-animation-delay: 0.5s;
     animation: slide_right 1s forwards;
@@ -149,7 +149,7 @@ header {
 }
 #slide_right_box_h5{
     position: absolute;
-    right: -30vw;
+    right: -50%;
     -webkit-animation: slide_right 1s forwards;
     -webkit-animation-delay: 0.5s;
     animation: slide_right 1s forwards;
@@ -205,20 +205,20 @@ header {
         100% { top: 40vw; }
     }
     #slide_left_box_h2{
-        left: -30vw;
+        left: -100vw;
         top: 50.4vw;
     }
     #slide_left_box_h4{
         top: 72.5vw;
-        left: -30vw;
+        left: -100vw;
     }
     #slide_right_box_h3{
         top: 62.2vw;
-        right: -30vw;
+        right: -100vw;
     }
     #slide_right_box_h5{
         top: 82.7vw;
-        right: -29.7vw;
+        right: -100vw;
     }
     @-webkit-keyframes slide_left{
         100% { left: 3.5vw; }
