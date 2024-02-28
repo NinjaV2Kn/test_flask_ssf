@@ -27,7 +27,7 @@ body {
 }
 #slide{
     position: absolute;
-    top: -30vw;
+    top: -50%;
     -webkit-animation: slide 1s forwards;
     -webkit-animation-delay: 0.5s;
     animation: slide 1s forwards;
@@ -35,11 +35,11 @@ body {
 }
 
 @-webkit-keyframes slide{
-    100% { top: 10vw; }
+    100% { top: 35%; }
 }
 
 @keyframes slide{
-    100% { top: 10vw; }
+    100% { top: 35%; }
 }
 
 
@@ -94,21 +94,14 @@ body {
     opacity: 0.75;
 }
 
-@media screen and (max-width: 768px){
-    body #slide{
-        position: absolute;
-        top: -60vh; 
-        -webkit-animation: slide 1s forwards;
-        -webkit-animation-delay: 0.5s;
-        animation: slide 1s forwards;
-        animation-delay: 0.5s;
+@media (max-width: 768px) {
+    #slide{
+        top: -10vw;
     }
-    
     @-webkit-keyframes slide{
-        100% { top: 60vh; }
+        100% { top: 10vw; }
     }
-    
     @keyframes slide{
-        100% { top: 60vh; }
+        100% { top: 10vw; }
     }
 }
