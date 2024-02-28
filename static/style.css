@@ -127,7 +127,7 @@ header {
     -webkit-animation-delay: 0.5s;
     animation: slide_left 1s forwards;
     animation-delay: 0.5s;
-    top: 8vw;
+    top: 9vw;
 }
 #slide_left_box_h4{
     position: absolute;
@@ -182,11 +182,11 @@ header {
 }
 
 @-webkit-keyframes slide_top{
-    100% { top: -100vw; }
+    100% { top: 2vw; }
 }
 
 @keyframes slide_top{
-    100% { top: -100vw; }
+    100% { top: 2vw; }
 }
 
 @media (max-width: 768px) {
@@ -206,19 +206,19 @@ header {
     }
     #slide_left_box_h2{
         left: -30vw;
-        top: 52.4vw;
+        top: 50.4vw;
     }
     #slide_left_box_h4{
         top: 72.5vw;
         left: -30vw;
     }
     #slide_right_box_h3{
-        top: 62.5vw;
+        top: 62.2vw;
         right: -30vw;
     }
     #slide_right_box_h5{
         top: 82.7vw;
-        right: -30vw;
+        right: -29.7vw;
     }
     @-webkit-keyframes slide_left{
         100% { left: 3.5vw; }
