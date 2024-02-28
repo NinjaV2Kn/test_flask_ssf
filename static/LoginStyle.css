@@ -25,6 +25,23 @@ body {
         background-position: var(--bg-size) 0;
     }
 }
+#slide{
+    position: absolute;
+    top: -30vw;
+    -webkit-animation: slide 1s forwards;
+    -webkit-animation-delay: 0.5s;
+    animation: slide 1s forwards;
+    animation-delay: 0.5s;
+}
+
+@-webkit-keyframes slide{
+    100% { top: 10vw; }
+}
+
+@keyframes slide{
+    100% { top: 10vw; }
+}
+
 
 .logo {
     color: rgb(245, 245, 245);
@@ -77,3 +94,21 @@ body {
     opacity: 0.75;
 }
 
+@media screen and (max-width: 768px){
+    body #slide{
+        position: absolute;
+        top: -60vh; 
+        -webkit-animation: slide 1s forwards;
+        -webkit-animation-delay: 0.5s;
+        animation: slide 1s forwards;
+        animation-delay: 0.5s;
+    }
+    
+    @-webkit-keyframes slide{
+        100% { top: 60vh; }
+    }
+    
+    @keyframes slide{
+        100% { top: 60vh; }
+    }
+}
