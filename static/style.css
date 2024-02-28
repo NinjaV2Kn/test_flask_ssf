@@ -127,7 +127,7 @@ header {
     -webkit-animation-delay: 0.5s;
     animation: slide_left 1s forwards;
     animation-delay: 0.5s;
-    top: 6vw;
+    top: 8vw;
 }
 #slide_left_box_h4{
     position: absolute;
@@ -195,7 +195,7 @@ header {
         max-width: none;
     }
     #slide_top{
-        top: 0.2vw;
+        top: 1vw;
     }
     @-webkit-keyframes slide_top{
         100% { top: 40vw; }
@@ -205,7 +205,34 @@ header {
         100% { top: 40vw; }
     }
     #slide_left_box_h2{
-        left: 10vw;
-        top: 6vw;
+        left: -30vw;
+        top: 52.4vw;
+    }
+    #slide_left_box_h4{
+        top: 72.5vw;
+        left: -30vw;
+    }
+    #slide_right_box_h3{
+        top: 62.5vw;
+        right: -30vw;
+    }
+    #slide_right_box_h5{
+        top: 82.7vw;
+        right: -30vw;
+    }
+    @-webkit-keyframes slide_left{
+        100% { left: 3.5vw; }
+    }
+    
+    @keyframes slide_left{
+        100% { left: 3.5vw; }
+    }
+    
+    @-webkit-keyframes slide_right{
+        100% { right: 3.5vw; }
+    }
+    
+    @keyframes slide_right{
+        100% { right: 3.5vw; }
     }
 }
