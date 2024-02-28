@@ -104,9 +104,108 @@ header {
     animation: move-bg 13s infinite linear;
 }
 
+#slide_top{
+    position: absolute;
+    top: -30vw;
+    -webkit-animation: slide_top 1s forwards;
+    -webkit-animation-delay: 0.5s;
+    animation: slide_top 1s forwards;
+    animation-delay: 0.5s;
+}
+
+@-webkit-keyframes slide_top{
+    100% { top: 10vw; }
+}
+
+@keyframes slide_top{
+    100% { top: 10vw; }
+}
+#slide_left_box_h2{
+    position: absolute;
+    left: -30vw;
+    -webkit-animation: slide_left 1s forwards;
+    -webkit-animation-delay: 0.5s;
+    animation: slide_left 1s forwards;
+    animation-delay: 0.5s;
+    top: 6vw;
+}
+#slide_left_box_h4{
+    position: absolute;
+    left: -30vw;
+    -webkit-animation: slide_left 1s forwards;
+    -webkit-animation-delay: 0.5s;
+    animation: slide_left 1s forwards;
+    animation-delay: 0.5s;
+    top: 30.5vw;
+}
+#slide_right_box_h3{
+    position: absolute;
+    right: -30vw;
+    -webkit-animation: slide_right 1s forwards;
+    -webkit-animation-delay: 0.5s;
+    animation: slide_right 1s forwards;
+    animation-delay: 0.5s;
+    top: 20.5vw;
+}
+#slide_right_box_h5{
+    position: absolute;
+    right: -30vw;
+    -webkit-animation: slide_right 1s forwards;
+    -webkit-animation-delay: 0.5s;
+    animation: slide_right 1s forwards;
+    animation-delay: 0.5s;
+    top: 40.7vw;
+}
+
+@-webkit-keyframes slide_left{
+    100% { left: 28.5vw; }
+}
+
+@keyframes slide_left{
+    100% { left: 28.5vw; }
+}
+
+@-webkit-keyframes slide_right{
+    100% { right: 28.5vw; }
+}
+
+@keyframes slide_right{
+    100% { right: 28.5vw; }
+}
+#slide_top{
+    position: absolute;
+    top: -7vw;
+    -webkit-animation: slide_top 1s forwards;
+    -webkit-animation-delay: 0.5s;
+    animation: slide_top 1s forwards;
+    animation-delay: 0.5s;
+}
+
+@-webkit-keyframes slide_top{
+    100% { top: -100vw; }
+}
+
+@keyframes slide_top{
+    100% { top: -100vw; }
+}
+
 @media (max-width: 768px) {
     .box_h2, .box_h3, .box_h4, .box_h5 {
         width: 90vw;
         max-width: none;
+    }
+    #slide_top{
+        top: 0.2vw;
+    }
+    @-webkit-keyframes slide_top{
+        100% { top: 40vw; }
+    }
+    
+    @keyframes slide_top{
+        100% { top: 40vw; }
+    }
+    #slide_left_box_h2{
+        left: 10vw;
+        top: 6vw;
     }
 }
