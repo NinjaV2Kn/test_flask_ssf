@@ -46,7 +46,7 @@ header {
 }
 
 .box_h2, .box_h3, .box_h4, .box_h5 {
-    background-color: rgba(223, 233, 255, 0.39);
+    background-color: rgba(223, 233, 255, 0.285);
     width: 40vw; 
     max-width: 80vw; 
     height: fit-content;
@@ -90,8 +90,8 @@ header {
 
 .h3, .h2, .h4 {
     --bg-size: 400%;
-    --color-one: hsla(133, 100%, 78%, 0.849);
-    --color-two: hsla(181, 71%, 70%, 0.808);
+    --color-one: hsl(192, 90%, 88%);
+    --color-two: hsl(194, 73%, 51%);
     background: linear-gradient(
         90deg,
         var(--color-one),
@@ -101,7 +101,7 @@ header {
     color: transparent;
     background-clip: text;
     -webkit-background-clip: text;
-    animation: move-bg 13s infinite linear;
+    animation: move-bg 10s infinite linear;
 }
 
 #slide_top{
